@@ -45,8 +45,8 @@ shape = SubResource("CapsuleShape3D_u8bio")
 
 [node name="Camera" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 25, 14)
-fov = 30.0
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 12, 7)
+fov = 45.0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera"]
 process_priority = 300
@@ -55,13 +55,13 @@ script = ExtResource("2_ixbpm")
 metadata/_custom_type_script = ExtResource("2_ixbpm")
 
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 25, 14)
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 12, 7)
 top_level = true
 script = ExtResource("3_c6leb")
 follow_mode = 2
 follow_target = NodePath("../PlayerCharacter")
 tween_resource = SubResource("Resource_ty5pe")
 camera_3d_resource = ExtResource("5_idpv6")
-follow_offset = Vector3(0, 25, 14)
+follow_offset = Vector3(0, 12, 7)
 follow_damping = true
 metadata/_custom_type_script = ExtResource("3_c6leb")
