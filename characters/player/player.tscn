@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca33na7xn7nu2"]
+[gd_scene load_steps=10 format=3 uid="uid://ca33na7xn7nu2"]
 
-[ext_resource type="Script" path="res://scripts/topdown_controller.gd" id="1_0gxgv"]
+[ext_resource type="Script" uid="uid://du4fm0rqfn1ea" path="res://scripts/topdown_controller.gd" id="1_0gxgv"]
+[ext_resource type="Script" uid="uid://deojcsesipf5s" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ixbpm"]
+[ext_resource type="Script" uid="uid://boqx3bec1vi1v" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_c6leb"]
+[ext_resource type="Script" uid="uid://bs4k2wlai0k7m" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_dirf7"]
+[ext_resource type="Resource" uid="uid://1vug1e8bkd7o" path="res://characters/player/player_cam.tres" id="5_idpv6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ct82r"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
@@ -13,7 +17,15 @@ height = 1.8
 radius = 0.4
 height = 1.8
 
-[node name="Player" type="CharacterBody3D"]
+[sub_resource type="Resource" id="Resource_ty5pe"]
+script = ExtResource("4_dirf7")
+duration = 1.0
+transition = 0
+ease = 2
+
+[node name="Player" type="Node3D"]
+
+[node name="PlayerCharacter" type="CharacterBody3D" parent="."]
 script = ExtResource("1_0gxgv")
 input_left = "move_left"
 input_right = "move_right"
@@ -21,12 +33,35 @@ input_forward = "move_up"
 input_back = "move_down"
 input_jump = "jump"
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
+[node name="Mesh" type="MeshInstance3D" parent="PlayerCharacter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 material_override = SubResource("StandardMaterial3D_ct82r")
 cast_shadow = 0
 mesh = SubResource("CapsuleMesh_wk2hj")
 
-[node name="Collider" type="CollisionShape3D" parent="."]
+[node name="Collider" type="CollisionShape3D" parent="PlayerCharacter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_u8bio")
+
+[node name="Camera" type="Camera3D" parent="."]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 25, 14)
+fov = 30.0
+
+[node name="PhantomCameraHost" type="Node" parent="Camera"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_ixbpm")
+metadata/_custom_type_script = ExtResource("2_ixbpm")
+
+[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 25, 14)
+top_level = true
+script = ExtResource("3_c6leb")
+follow_mode = 2
+follow_target = NodePath("../PlayerCharacter")
+tween_resource = SubResource("Resource_ty5pe")
+camera_3d_resource = ExtResource("5_idpv6")
+follow_offset = Vector3(0, 25, 14)
+follow_damping = true
+metadata/_custom_type_script = ExtResource("3_c6leb")
