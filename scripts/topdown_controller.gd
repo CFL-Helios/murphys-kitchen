@@ -29,8 +29,6 @@ extends CharacterBody3D
 @export var input_jump : String = "ui_accept"
 ## Name of Input Action to Sprint.
 @export var input_sprint : String = "sprint"
-## Name of Input Action to toggle freefly mode.
-@export var input_freefly : String = "freefly"
 
 var mouse_captured : bool = false
 var look_rotation : Vector2
@@ -38,13 +36,10 @@ var move_speed : float = 0.0
 var freeflying : bool = false
 
 ## IMPORTANT REFERENCES
-@onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
 
 func _ready() -> void:
 	check_input_mappings()
-	look_rotation.y = rotation.y
-	look_rotation.x = head.rotation.x
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
@@ -88,16 +83,6 @@ func _physics_process(delta: float) -> void:
 	
 	# Use velocity to actually move
 	move_and_slide()
-
-
-func enable_freefly():
-	collider.disabled = true
-	freeflying = true
-	velocity = Vector3.ZERO
-
-func disable_freefly():
-	collider.disabled = false
-	freeflying = false
 
 
 func capture_mouse():
