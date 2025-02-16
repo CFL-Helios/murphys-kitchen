@@ -29,9 +29,6 @@ shadow_enabled = true
 [node name="Level" type="CSGCombiner3D" parent="."]
 use_collision = true
 
-[node name="Camera3D" type="Camera3D" parent="Level"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 11.616, 0)
-
 [node name="CSGBox3D" type="CSGBox3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.809217, 0)
 use_collision = true
