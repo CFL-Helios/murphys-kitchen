@@ -70,7 +70,7 @@ func _physics_process(delta: float) -> void:
 	# Apply desired movement to velocity
 	if can_move:
 		var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)
-		var move_dir := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		var move_dir := (transform.basis * Vector3(input_dir.x, 0, input_dir.y))
 		if move_dir:
 			velocity.x = move_dir.x * move_speed
 			velocity.z = move_dir.z * move_speed
@@ -79,7 +79,7 @@ func _physics_process(delta: float) -> void:
 			velocity.z = move_toward(velocity.z, 0, move_speed)
 	else:
 		velocity.x = 0
-		velocity.y = 0
+		velocity.z = 0
 	
 	# Use velocity to actually move
 	move_and_slide()
