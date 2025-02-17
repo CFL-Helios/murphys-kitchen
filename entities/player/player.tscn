@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://deojcsesipf5s" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ixbpm"]
 [ext_resource type="Script" uid="uid://boqx3bec1vi1v" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_c6leb"]
 [ext_resource type="Script" uid="uid://bs4k2wlai0k7m" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_dirf7"]
-[ext_resource type="Resource" uid="uid://1vug1e8bkd7o" path="res://characters/player/player_cam.tres" id="5_idpv6"]
+[ext_resource type="Resource" uid="uid://1vug1e8bkd7o" path="res://entities/player/player_cam.tres" id="5_idpv6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ct82r"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
@@ -26,6 +26,8 @@ ease = 2
 [node name="Player" type="Node3D"]
 
 [node name="PlayerCharacter" type="CharacterBody3D" parent="."]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
 script = ExtResource("1_0gxgv")
 input_left = "move_left"
 input_right = "move_right"
@@ -36,7 +38,7 @@ input_jump = "jump"
 [node name="Mesh" type="MeshInstance3D" parent="PlayerCharacter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 material_override = SubResource("StandardMaterial3D_ct82r")
-cast_shadow = 0
+gi_mode = 2
 mesh = SubResource("CapsuleMesh_wk2hj")
 
 [node name="Collider" type="CollisionShape3D" parent="PlayerCharacter"]

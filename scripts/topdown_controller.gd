@@ -70,10 +70,12 @@ func _physics_process(delta: float) -> void:
 	# Apply desired movement to velocity
 	if can_move:
 		var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)
-		var move_dir := (transform.basis * Vector3(input_dir.x, 0, input_dir.y))
+		var move_dir := Vector3(input_dir.x, 0, input_dir.y)
 		if move_dir:
 			velocity.x = move_dir.x * move_speed
 			velocity.z = move_dir.z * move_speed
+			var look_at_target = Vector3(global_position.x + velocity.x, global_position.y, global_position.z + velocity.z)
+			look_at(look_at_target, Vector3.UP, false)
 		else:
 			velocity.x = move_toward(velocity.x, 0, move_speed)
 			velocity.z = move_toward(velocity.z, 0, move_speed)
