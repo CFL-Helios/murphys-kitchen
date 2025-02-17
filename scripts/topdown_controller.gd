@@ -15,6 +15,8 @@ extends CharacterBody3D
 @export var jump_velocity : float = 4.5
 ## How fast do we run?
 @export var sprint_speed : float = 10.0
+@export var accel : float = 0.5
+@export var deccel : float = 0.5
 
 @export_group("Input Actions")
 ## Name of Input Action to move Left.
@@ -69,16 +71,7 @@ func _physics_process(delta: float) -> void:
 
 	# Apply desired movement to velocity
 	if can_move:
-		var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)
-		var move_dir := Vector3(input_dir.x, 0, input_dir.y)
-		if move_dir:
-			velocity.x = move_dir.x * move_speed
-			velocity.z = move_dir.z * move_speed
-			var look_at_target = Vector3(global_position.x + velocity.x, global_position.y, global_position.z + velocity.z)
-			look_at(look_at_target, Vector3.UP, false)
-		else:
-			velocity.x = move_toward(velocity.x, 0, move_speed)
-			velocity.z = move_toward(velocity.z, 0, move_speed)
+		calculate_velocity()
 	else:
 		velocity.x = 0
 		velocity.z = 0
@@ -86,6 +79,26 @@ func _physics_process(delta: float) -> void:
 	# Use velocity to actually move
 	move_and_slide()
 
+func calculate_velocity():
+	var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)
+	var move_dir := Vector3(input_dir.x, 0, input_dir.y)
+	
+	
+	if move_dir:
+		move_dir *= move_speed
+		velocity.x = move_toward(velocity.x, move_dir.x, accel)
+		velocity.z = move_toward(velocity.z, move_dir.z, accel)
+
+	else:
+		velocity.x = move_toward(velocity.x, 0, deccel)
+		velocity.z = move_toward(velocity.z, 0, deccel)
+	
+	if velocity:
+		var look_at_target = Vector3(global_position.x + velocity.x, global_position.y, global_position.z + velocity.z)
+		look_at(look_at_target, Vector3.UP, false)
+	
+	velocity.x = clamp(velocity.x, -1 * move_speed, move_speed)
+	velocity.z = clamp(velocity.z, -1 * move_speed, move_speed)
 
 func capture_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
