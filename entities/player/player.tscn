@@ -41,17 +41,17 @@ input_forward = "move_up"
 input_back = "move_down"
 input_jump = "jump"
 
-[node name="Mesh" type="MeshInstance3D" parent="PlayerCharacter"]
+[node name="PlayerMesh" type="MeshInstance3D" parent="PlayerCharacter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 material_override = SubResource("StandardMaterial3D_ct82r")
 gi_mode = 2
 mesh = SubResource("CapsuleMesh_wk2hj")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerCharacter/Mesh"]
+[node name="DirectionIndicator" type="MeshInstance3D" parent="PlayerCharacter/PlayerMesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.496169)
 mesh = SubResource("BoxMesh_fkugw")
 
-[node name="Collider" type="CollisionShape3D" parent="PlayerCharacter"]
+[node name="PlayerCollider" type="CollisionShape3D" parent="PlayerCharacter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_u8bio")
 
@@ -69,7 +69,7 @@ fov = 45.0
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("2_ixbpm")
-metadata/_custom_type_script = ExtResource("2_ixbpm")
+metadata/_custom_type_script = "uid://deojcsesipf5s"
 
 [node name="PhantomCamera3D" type="Node3D" parent="CameraSystem" node_paths=PackedStringArray("follow_target")]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 12, 7)
@@ -81,4 +81,4 @@ tween_resource = SubResource("Resource_ty5pe")
 camera_3d_resource = ExtResource("5_idpv6")
 follow_offset = Vector3(0, 12, 7)
 follow_damping = true
-metadata/_custom_type_script = ExtResource("3_c6leb")
+metadata/_custom_type_script = "uid://boqx3bec1vi1v"
