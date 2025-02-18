@@ -34,11 +34,12 @@ class_name TopDownPlayer extends CharacterBody3D
 
 var move_speed : float = 0.0
 var held_object : Node3D
-
+var pickup : RigidBody3D
 
 ## IMPORTANT REFERENCES
-@onready var collider: CollisionShape3D = $Collider
-@onready var socket: Marker3D = $PlateSocket
+@onready var collider: CollisionShape3D = $PlayerCollider
+@onready var pickup_socket: Marker3D = $PickupSocket
+@onready var drop_socket : Marker3D = $DropSocket
 
 func _ready() -> void:
 	check_input_mappings()
@@ -69,7 +70,8 @@ func _physics_process(delta: float) -> void:
 	
 	# Use velocity to actually move
 	move_and_slide()
-
+	if pickup: pickup.global_position = pickup_socket.global_position
+	
 func calculate_velocity():
 	var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)
 	var move_dir := Vector3(input_dir.x, 0, input_dir.y)
@@ -84,15 +86,27 @@ func calculate_velocity():
 		velocity.x = move_toward(velocity.x, 0, deccel)
 		velocity.z = move_toward(velocity.z, 0, deccel)
 	
-	if velocity.x or velocity.z:
-		var look_at_target = Vector3(global_position.x + velocity.x, global_position.y, global_position.z + velocity.z)
-		look_at(look_at_target, up_direction, true)
+	var look_at_target = Vector3(global_position.x + velocity.x, global_position.y, global_position.z + velocity.z)
+	if look_at_target != global_position: look_at(look_at_target, up_direction, true)
 	
 	velocity.x = clamp(velocity.x, -1 * move_speed, move_speed)
 	velocity.z = clamp(velocity.z, -1 * move_speed, move_speed)
 
 func has_moved() -> bool:
 	return velocity.length() > 0
+	
+func take_pickup(new_pickup: RigidBody3D):
+	pickup = new_pickup
+	pickup.freeze = true
+	pickup.global_position = pickup_socket.global_position
+	
+func drop_pickup():
+	place_pickup(drop_socket.global_position)
+	
+func place_pickup(place_pos : Vector3):
+	pickup.freeze = false
+	pickup.global_position = place_pos
+	pickup = null
 
 ## Checks if some Input Actions haven't been created.
 ## Disables functionality accordingly.

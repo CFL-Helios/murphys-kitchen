@@ -42,14 +42,17 @@ func _input(event: InputEvent) -> void:
 	if not event.is_action_pressed("interact"):
 		return
 		
-	if holding_object and not active_placements.is_empty():
-		print(closest_placement.name)
-		# drop pickup
+	if holding_object: 
+		print("dropping")
+		if active_placements.is_empty(): player.drop_pickup()
+		else: player.place_pickup(closest_placement.global_position)
+		
 		holding_object = false
 		closest_pickup = _get_closest(active_pickups)
 		
-	elif not holding_object and not active_pickups.is_empty():
-		print(closest_pickup.name)
-		# hold pickup
+	elif not active_pickups.is_empty():
+		print("picking up")
+		player.take_pickup(closest_pickup.pickup)
+		
 		holding_object = true
 		closest_placement = _get_closest(active_placements)

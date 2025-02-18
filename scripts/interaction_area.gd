@@ -2,6 +2,7 @@ class_name InteractionArea extends Area3D
 
 @export var action_name: String = "interact"
 @export var is_pickup: bool
+@export var pickup: RigidBody3D
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):

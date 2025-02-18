@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://ca33na7xn7nu2"]
 
-[ext_resource type="Script" uid="uid://du4fm0rqfn1ea" path="res://scripts/topdown_controller.gd" id="1_0gxgv"]
+[ext_resource type="Script" uid="uid://du4fm0rqfn1ea" path="res://scripts/player_controller.gd" id="1_0gxgv"]
 [ext_resource type="Script" uid="uid://deojcsesipf5s" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ixbpm"]
 [ext_resource type="Script" uid="uid://boqx3bec1vi1v" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_c6leb"]
 [ext_resource type="Script" uid="uid://bs4k2wlai0k7m" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_dirf7"]
@@ -55,8 +55,11 @@ mesh = SubResource("BoxMesh_fkugw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_u8bio")
 
-[node name="PlateSocket" type="Marker3D" parent="PlayerCharacter"]
+[node name="PickupSocket" type="Marker3D" parent="PlayerCharacter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="DropSocket" type="Marker3D" parent="PlayerCharacter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 1)
 
 [node name="CameraSystem" type="Node3D" parent="."]
 
