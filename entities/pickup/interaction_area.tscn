@@ -1,11 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://2aaoh2fber7h"]
+[gd_scene load_steps=5 format=3 uid="uid://2aaoh2fber7h"]
 
 [ext_resource type="Script" uid="uid://cwmqnp2tc38lp" path="res://scripts/interaction_area.gd" id="1_1t0q5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1t0q5"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.0392157)
+
+[sub_resource type="SphereMesh" id="SphereMesh_n2tve"]
+radius = 1.0
+height = 2.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0rkms"]
+radius = 1.0
 
 [node name="InteractionArea" type="Area3D"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_1t0q5")
+
+[node name="InteractionMesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_1t0q5")
+mesh = SubResource("SphereMesh_n2tve")
+skeleton = NodePath("../InteractionCollider")
+
+[node name="InteractionCollider" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_0rkms")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

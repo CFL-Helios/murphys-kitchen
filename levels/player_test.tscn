@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbqa0cjoaphvd"]
+[gd_scene load_steps=7 format=3 uid="uid://bbqa0cjoaphvd"]
 
 [ext_resource type="PackedScene" uid="uid://ca33na7xn7nu2" path="res://entities/player/player.tscn" id="1_0ccno"]
-[ext_resource type="PackedScene" uid="uid://dg30bh718u76n" path="res://entities/pickup/pickup.tscn" id="2_x2p0s"]
-[ext_resource type="PackedScene" uid="uid://sb3kwrooy8rb" path="res://entities/pickup/placement.tscn" id="3_xnitr"]
+[ext_resource type="PackedScene" uid="uid://dg30bh718u76n" path="res://entities/pickup/pickup.tscn" id="2_hy58v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cqog6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -40,8 +39,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.809217, 0)
 use_collision = true
 size = Vector3(14.5974, 1, 13.3271)
 
-[node name="Pickup" parent="." instance=ExtResource("2_x2p0s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.12521, 0.340944, 0)
-
-[node name="Placement" parent="." instance=ExtResource("3_xnitr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.12521, 0, -3.11172)
+[node name="Pickup" parent="." instance=ExtResource("2_hy58v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.91974, 0, 0)

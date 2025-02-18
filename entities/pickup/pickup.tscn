@@ -1,17 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dg30bh718u76n"]
+[gd_scene load_steps=5 format=3 uid="uid://dg30bh718u76n"]
 
-[ext_resource type="Script" uid="uid://cwmqnp2tc38lp" path="res://scripts/interaction_area.gd" id="1_w2yne"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2yne"]
-transparency = 1
-albedo_color = Color(1, 1, 1, 0.0392157)
-
-[sub_resource type="SphereMesh" id="SphereMesh_w7cft"]
-radius = 1.0
-height = 2.0
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_dgci1"]
-radius = 1.0
+[ext_resource type="PackedScene" uid="uid://2aaoh2fber7h" path="res://entities/pickup/interaction_area.tscn" id="1_w2yne"]
+[ext_resource type="PackedScene" uid="uid://ca3afvivsj2h0" path="res://entities/pickup/FoodItem.tscn" id="2_w7cft"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_w2yne"]
 height = 0.05
@@ -31,22 +21,7 @@ collision_mask = 7
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 freeze_mode = 1
-
-[node name="InteractionArea" type="Area3D" parent="Plate" node_paths=PackedStringArray("pickup")]
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("1_w2yne")
-is_pickup = true
-pickup = NodePath("..")
-metadata/_custom_type_script = "uid://cwmqnp2tc38lp"
-
-[node name="TriggerMesh" type="MeshInstance3D" parent="Plate/InteractionArea"]
-material_override = SubResource("StandardMaterial3D_w2yne")
-mesh = SubResource("SphereMesh_w7cft")
-skeleton = NodePath("../TriggerShape")
-
-[node name="TriggerShape" type="CollisionShape3D" parent="Plate/InteractionArea"]
-shape = SubResource("SphereShape3D_dgci1")
+continuous_cd = true
 
 [node name="PlateCollision" type="CollisionShape3D" parent="Plate"]
 shape = SubResource("CylinderShape3D_w2yne")
@@ -55,7 +30,8 @@ shape = SubResource("CylinderShape3D_w2yne")
 gi_mode = 2
 mesh = SubResource("CylinderMesh_w7cft")
 
-[node name="Food" type="Node3D" parent="."]
+[node name="InteractionArea2" parent="Plate" instance=ExtResource("1_w2yne")]
+is_pickup = true
 
-[connection signal="body_entered" from="Plate/InteractionArea" to="Plate/InteractionArea" method="_on_body_entered"]
-[connection signal="body_exited" from="Plate/InteractionArea" to="Plate/InteractionArea" method="_on_body_exited"]
+[node name="Food" parent="." instance=ExtResource("2_w7cft")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.101141, 0)
