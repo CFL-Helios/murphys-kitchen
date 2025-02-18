@@ -28,7 +28,8 @@ ease = 2
 
 [node name="Player" type="Node3D"]
 
-[node name="PlayerCharacter" type="CharacterBody3D" parent="."]
+[node name="PlayerCharacter" type="CharacterBody3D" parent="." groups=["Player"]]
+collision_layer = 2
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_0gxgv")
@@ -47,12 +48,15 @@ gi_mode = 2
 mesh = SubResource("CapsuleMesh_wk2hj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerCharacter/Mesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.466882)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.496169)
 mesh = SubResource("BoxMesh_fkugw")
 
 [node name="Collider" type="CollisionShape3D" parent="PlayerCharacter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_u8bio")
+
+[node name="PlateSocket" type="Marker3D" parent="PlayerCharacter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="CameraSystem" type="Node3D" parent="."]
 

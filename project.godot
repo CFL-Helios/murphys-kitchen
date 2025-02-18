@@ -17,10 +17,15 @@ config/icon="res://icon.svg"
 [autoload]
 
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+InteractionManager="*res://scripts/interaction_manager.gd"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
+
+[global_group]
+
+Player=""
 
 [input]
 
@@ -75,6 +80,11 @@ sprint={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":2,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
+
+[layer_names]
+
+3d_physics/layer_1="World"
+3d_physics/layer_2="Player"
 
 [physics]
 

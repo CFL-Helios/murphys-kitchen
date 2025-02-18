@@ -1,6 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://dg30bh718u76n"]
+[gd_scene load_steps=7 format=3 uid="uid://dg30bh718u76n"]
+
+[ext_resource type="Script" uid="uid://cwmqnp2tc38lp" path="res://scripts/interaction_area.gd" id="1_w2yne"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dgci1"]
+radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l1ks5"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.501961)
+
+[sub_resource type="SphereMesh" id="SphereMesh_w2yne"]
+material = SubResource("StandardMaterial3D_l1ks5")
+radius = 1.0
+height = 2.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_w2yne"]
 height = 0.05
@@ -15,9 +27,17 @@ height = 0.05
 metadata/_edit_group_ = true
 
 [node name="Trigger" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_w2yne")
+is_pickup = true
+metadata/_custom_type_script = ExtResource("1_w2yne")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Trigger"]
 shape = SubResource("SphereShape3D_dgci1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Trigger"]
+mesh = SubResource("SphereMesh_w2yne")
 
 [node name="Plate" type="RigidBody3D" parent="."]
 
@@ -28,3 +48,6 @@ shape = SubResource("CylinderShape3D_w2yne")
 mesh = SubResource("CylinderMesh_w7cft")
 
 [node name="Food" type="Node3D" parent="."]
+
+[connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]
+[connection signal="body_exited" from="Trigger" to="Trigger" method="_on_body_exited"]

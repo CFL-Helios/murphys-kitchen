@@ -1,4 +1,4 @@
-extends CharacterBody3D
+class_name TopDownPlayer extends CharacterBody3D
 
 ## Can we move around?
 @export var can_move : bool = true
@@ -32,27 +32,18 @@ extends CharacterBody3D
 ## Name of Input Action to Sprint.
 @export var input_sprint : String = "sprint"
 
-var mouse_captured : bool = false
-var look_rotation : Vector2
 var move_speed : float = 0.0
-var freeflying : bool = false
+var held_object : Node3D
+
 
 ## IMPORTANT REFERENCES
 @onready var collider: CollisionShape3D = $Collider
+@onready var socket: Marker3D = $PlateSocket
 
 func _ready() -> void:
 	check_input_mappings()
 
-func _unhandled_input(event: InputEvent) -> void:
-	# Mouse capturing
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		capture_mouse()
-	if Input.is_key_pressed(KEY_ESCAPE):
-		release_mouse()
-	
-
 func _physics_process(delta: float) -> void:
-	
 	# Apply gravity to velocity
 	if has_gravity:
 		if not is_on_floor():
@@ -93,22 +84,15 @@ func calculate_velocity():
 		velocity.x = move_toward(velocity.x, 0, deccel)
 		velocity.z = move_toward(velocity.z, 0, deccel)
 	
-	if velocity:
+	if velocity.x or velocity.z:
 		var look_at_target = Vector3(global_position.x + velocity.x, global_position.y, global_position.z + velocity.z)
-		look_at(look_at_target, Vector3.UP, false)
+		look_at(look_at_target, up_direction, true)
 	
 	velocity.x = clamp(velocity.x, -1 * move_speed, move_speed)
 	velocity.z = clamp(velocity.z, -1 * move_speed, move_speed)
 
-func capture_mouse():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	mouse_captured = true
-
-
-func release_mouse():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	mouse_captured = false
-
+func has_moved() -> bool:
+	return velocity.length() > 0
 
 ## Checks if some Input Actions haven't been created.
 ## Disables functionality accordingly.
