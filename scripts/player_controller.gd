@@ -35,7 +35,7 @@ class_name TopDownPlayer extends CharacterBody3D
 var move_speed : float = 0.0
 
 var dish : RigidBody3D
-var food : Node3D
+var food : Food
 
 ## IMPORTANT REFERENCES
 @onready var collider: CollisionShape3D = $PlayerCollider
@@ -87,7 +87,7 @@ func calculate_velocity():
 		velocity.z = move_toward(velocity.z, 0, deccel)
 	
 	var look_at_target = Vector3(global_position.x + velocity.x, global_position.y, global_position.z + velocity.z)
-	if look_at_target != global_position: look_at(look_at_target, up_direction, true)
+	if not look_at_target.is_equal_approx(global_position): look_at(look_at_target, up_direction, true)
 	
 	velocity.x = clamp(velocity.x, -1 * move_speed, move_speed)
 	velocity.z = clamp(velocity.z, -1 * move_speed, move_speed)
@@ -95,7 +95,7 @@ func calculate_velocity():
 func has_moved() -> bool:
 	return velocity.length() > 0
 	
-func take_pickup(new_dish: RigidBody3D, new_food: Node3D):
+func take_pickup(new_dish: RigidBody3D, new_food: Food):
 	dish = new_dish
 	food = new_food
 

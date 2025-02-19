@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://ca3afvivsj2h0"]
+[gd_scene load_steps=8 format=3 uid="uid://ca3afvivsj2h0"]
 
-[ext_resource type="Script" uid="uid://cbik34dno3xba" path="res://scripts/food_item.gd" id="1_n3y6a"]
+[ext_resource type="Script" uid="uid://ddjbf7w1qm66p" path="res://scripts/food.gd" id="1_xeaex"]
+[ext_resource type="Script" uid="uid://cbik34dno3xba" path="res://scripts/food_item.gd" id="2_0wmj2"]
+[ext_resource type="Material" uid="uid://2r1338dig1wi" path="res://entities/pickup/highlight_material.tres" id="2_tq67v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rm78n"]
 albedo_color = Color(0.94, 0.76516, 0.3572, 1)
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.1
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_rm78n"]
 material = SubResource("StandardMaterial3D_rm78n")
@@ -18,13 +22,15 @@ radius = 0.1
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n3y6a"]
 
 [node name="Food" type="Node3D" groups=["Food Safe"]]
+script = ExtResource("1_xeaex")
+highlight_mat = ExtResource("2_tq67v")
 
 [node name="FoodItem" type="RigidBody3D" parent="."]
 collision_layer = 4
 collision_mask = 7
 contact_monitor = true
 max_contacts_reported = 1
-script = ExtResource("1_n3y6a")
+script = ExtResource("2_0wmj2")
 
 [node name="FoodMesh" type="MeshInstance3D" parent="FoodItem"]
 mesh = SubResource("CylinderMesh_rm78n")

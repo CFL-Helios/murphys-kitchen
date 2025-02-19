@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbqa0cjoaphvd"]
+[gd_scene load_steps=8 format=3 uid="uid://bbqa0cjoaphvd"]
 
 [ext_resource type="PackedScene" uid="uid://ca33na7xn7nu2" path="res://entities/player/player.tscn" id="1_0ccno"]
 [ext_resource type="PackedScene" uid="uid://dg30bh718u76n" path="res://entities/pickup/pickup.tscn" id="2_hy58v"]
+[ext_resource type="PackedScene" uid="uid://4s7ij0nr3tis" path="res://entities/pickup/placement.tscn" id="3_x2p0s"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cqog6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -41,3 +42,6 @@ size = Vector3(14.5974, 1, 13.3271)
 
 [node name="Pickup" parent="." instance=ExtResource("2_hy58v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.91974, 0, 0)
+
+[node name="Placement" parent="." instance=ExtResource("3_x2p0s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.27048, -0.138983, -3.43167)

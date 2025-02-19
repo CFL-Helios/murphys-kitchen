@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dg30bh718u76n"]
+[gd_scene load_steps=7 format=3 uid="uid://dg30bh718u76n"]
 
 [ext_resource type="PackedScene" uid="uid://2aaoh2fber7h" path="res://entities/pickup/interaction_area.tscn" id="1_w2yne"]
-[ext_resource type="PackedScene" uid="uid://ca3afvivsj2h0" path="res://entities/pickup/food_item.tscn" id="2_w7cft"]
+[ext_resource type="Script" uid="uid://bxg8e7nq58ti" path="res://scripts/pickup.gd" id="2_32udv"]
+[ext_resource type="PackedScene" uid="uid://ca3afvivsj2h0" path="res://entities/pickup/food.tscn" id="2_w7cft"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_w2yne"]
 height = 0.05
@@ -11,6 +12,9 @@ radius = 0.2
 top_radius = 0.2
 bottom_radius = 0.15
 height = 0.05
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_d8ca8"]
+radius = 1.0
 
 [node name="Pickup" type="Node3D"]
 metadata/_edit_group_ = true
@@ -31,9 +35,12 @@ gi_mode = 2
 mesh = SubResource("CylinderMesh_w7cft")
 
 [node name="InteractionArea" parent="Plate" node_paths=PackedStringArray("dish", "food") instance=ExtResource("1_w2yne")]
-is_pickup = true
+script = ExtResource("2_32udv")
 dish = NodePath("..")
 food = NodePath("../../Food")
+
+[node name="InteractionCollider" type="CollisionShape3D" parent="Plate/InteractionArea"]
+shape = SubResource("SphereShape3D_d8ca8")
 
 [node name="Food" parent="." instance=ExtResource("2_w7cft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.101141, 0)
