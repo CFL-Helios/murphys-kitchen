@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca3afvivsj2h0"]
+[gd_scene load_steps=5 format=3 uid="uid://ca3afvivsj2h0"]
+
+[ext_resource type="Script" uid="uid://cbik34dno3xba" path="res://scripts/food_item.gd" id="1_n3y6a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rm78n"]
 albedo_color = Color(0.94, 0.76516, 0.3572, 1)
@@ -13,11 +15,14 @@ height = 0.1
 height = 0.2
 radius = 0.1
 
-[node name="Food" type="Node3D"]
+[node name="Food" type="Node3D" groups=["Food Safe"]]
 
 [node name="FoodItem" type="RigidBody3D" parent="."]
 collision_layer = 4
 collision_mask = 7
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_n3y6a")
 
 [node name="FoodMesh" type="MeshInstance3D" parent="FoodItem"]
 mesh = SubResource("CylinderMesh_rm78n")
@@ -25,3 +30,5 @@ skeleton = NodePath("../..")
 
 [node name="FoodCollision" type="CollisionShape3D" parent="FoodItem"]
 shape = SubResource("CylinderShape3D_d2cix")
+
+[connection signal="body_entered" from="FoodItem" to="FoodItem" method="_on_body_entered"]

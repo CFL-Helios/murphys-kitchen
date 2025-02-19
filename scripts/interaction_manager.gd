@@ -10,12 +10,10 @@ var closest_placement : InteractionArea
 var holding_object : bool = false
 
 func reg_area(area: InteractionArea):
-	print("add:" + area.name)
 	if area.is_pickup: active_pickups.push_back(area)
 	else: active_placements.push_back(area)
 	
 func unreg_area(area: InteractionArea):
-	print("remove:" + area.name)
 	if area.is_pickup: active_pickups.erase(area)
 	else: active_placements.erase(area)
 	
@@ -43,7 +41,6 @@ func _input(event: InputEvent) -> void:
 		return
 		
 	if holding_object: 
-		print("dropping")
 		if active_placements.is_empty(): player.drop_pickup()
 		else: player.place_pickup(closest_placement.global_position)
 		
@@ -51,8 +48,7 @@ func _input(event: InputEvent) -> void:
 		closest_pickup = _get_closest(active_pickups)
 		
 	elif not active_pickups.is_empty():
-		print("picking up")
-		player.take_pickup(closest_pickup.pickup)
+		player.take_pickup(closest_pickup.dish, closest_pickup.food)
 		
 		holding_object = true
 		closest_placement = _get_closest(active_placements)
