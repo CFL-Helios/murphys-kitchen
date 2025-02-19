@@ -77,7 +77,6 @@ func calculate_velocity():
 	var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)
 	var move_dir := Vector3(input_dir.x, 0, input_dir.y)
 	
-	
 	if move_dir:
 		move_dir *= move_speed
 		velocity.x = move_toward(velocity.x, move_dir.x, accel)

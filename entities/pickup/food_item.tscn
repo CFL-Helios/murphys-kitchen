@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca3afvivsj2h0"]
+[gd_scene load_steps=6 format=3 uid="uid://ca3afvivsj2h0"]
 
 [ext_resource type="Script" uid="uid://cbik34dno3xba" path="res://scripts/food_item.gd" id="1_n3y6a"]
 
@@ -15,6 +15,8 @@ height = 0.1
 height = 0.2
 radius = 0.1
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n3y6a"]
+
 [node name="Food" type="Node3D" groups=["Food Safe"]]
 
 [node name="FoodItem" type="RigidBody3D" parent="."]
@@ -30,5 +32,10 @@ skeleton = NodePath("../..")
 
 [node name="FoodCollision" type="CollisionShape3D" parent="FoodItem"]
 shape = SubResource("CylinderShape3D_d2cix")
+
+[node name="FoodSplatter" type="Decal" parent="FoodItem"]
+visible = false
+size = Vector3(0.5, 0.5, 0.5)
+texture_albedo = SubResource("PlaceholderTexture2D_n3y6a")
 
 [connection signal="body_entered" from="FoodItem" to="FoodItem" method="_on_body_entered"]
