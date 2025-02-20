@@ -34,8 +34,7 @@ class_name TopDownPlayer extends CharacterBody3D
 
 var move_speed : float = 0.0
 
-var dish : RigidBody3D
-var food : Food
+var pickup : Pickup
 
 ## IMPORTANT REFERENCES
 @onready var collider: CollisionShape3D = $PlayerCollider
@@ -71,7 +70,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Use velocity to actually move
 	move_and_slide()
-	if dish: dish.global_position = pickup_socket.global_position
+	if pickup: pickup.dish.global_position = pickup_socket.global_position
 	
 func calculate_velocity():
 	var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)
@@ -95,28 +94,25 @@ func calculate_velocity():
 func has_moved() -> bool:
 	return velocity.length() > 0
 	
-func take_pickup(new_dish: RigidBody3D, new_food: Food):
-	dish = new_dish
-	food = new_food
+func take_pickup(new_pickup: Pickup):
+	pickup = new_pickup
 
-	dish.freeze = true
+	pickup.dish.freeze = true
 	
-	var pos_diff = dish.global_position - pickup_socket.global_position
-	dish.global_position = pickup_socket.global_position
-	food.global_position -= pos_diff
+	var pos_diff = pickup.dish.global_position - pickup_socket.global_position
+	pickup.dish.global_position = pickup_socket.global_position
+	pickup.food.global_position -= pos_diff
 	
 func drop_pickup():
 	place_pickup(drop_socket.global_position)
 	
 func place_pickup(place_pos : Vector3):
-	dish.freeze = false
+	pickup.dish.freeze = false
 	
-	var pos_diff = dish.global_position - place_pos
-	dish.global_position = place_pos
-	food.global_position -= pos_diff
-	
-	dish = null
-	food = null
+	var pos_diff = pickup.dish.global_position - place_pos
+	pickup.dish.global_position = place_pos
+	pickup.food.global_position -= pos_diff
+	pickup = null
 
 ## Checks if some Input Actions haven't been created.
 ## Disables functionality accordingly.

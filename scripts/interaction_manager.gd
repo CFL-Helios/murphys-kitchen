@@ -48,6 +48,7 @@ func _input(event: InputEvent) -> void:
 	if holding_object: 
 		if active_placements.is_empty(): player.drop_pickup()
 		else: 
+			player.pickup.score()
 			player.place_pickup(closest_placement.global_position)
 			closest_placement.highlight(false)
 		
@@ -55,7 +56,7 @@ func _input(event: InputEvent) -> void:
 		closest_pickup = _get_closest(active_pickups)
 		
 	elif not active_pickups.is_empty():
-		player.take_pickup(closest_pickup.dish, closest_pickup.food)
+		player.take_pickup(closest_pickup)
 		closest_pickup.highlight(false)
 		
 		holding_object = true
