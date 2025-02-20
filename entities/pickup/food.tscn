@@ -1,19 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ca3afvivsj2h0"]
+[gd_scene load_steps=7 format=3 uid="uid://ca3afvivsj2h0"]
 
 [ext_resource type="Script" uid="uid://ddjbf7w1qm66p" path="res://scripts/food.gd" id="1_xeaex"]
 [ext_resource type="Script" uid="uid://cbik34dno3xba" path="res://scripts/food_item.gd" id="2_0wmj2"]
 [ext_resource type="Material" uid="uid://2r1338dig1wi" path="res://entities/pickup/highlight_material.tres" id="2_tq67v"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rm78n"]
-albedo_color = Color(0.94, 0.76516, 0.3572, 1)
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 0.1
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_rm78n"]
-material = SubResource("StandardMaterial3D_rm78n")
-top_radius = 0.2
-bottom_radius = 0.2
-height = 0.1
+[ext_resource type="PackedScene" uid="uid://doqtiq8y1cfbe" path="res://Meshes/Burger/burger.gltf" id="4_tq67v"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_d2cix"]
 height = 0.2
@@ -32,11 +22,10 @@ contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("2_0wmj2")
 
-[node name="FoodMesh" type="MeshInstance3D" parent="FoodItem"]
-mesh = SubResource("CylinderMesh_rm78n")
-skeleton = NodePath("../..")
+[node name="burger" parent="FoodItem" instance=ExtResource("4_tq67v")]
 
 [node name="FoodCollision" type="CollisionShape3D" parent="FoodItem"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0993633, 0)
 shape = SubResource("CylinderShape3D_d2cix")
 
 [node name="FoodSplatter" type="Decal" parent="FoodItem"]
