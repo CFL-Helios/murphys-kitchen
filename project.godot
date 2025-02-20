@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 InteractionManager="*res://scripts/interaction_manager.gd"
+ScoreManager="*res://scripts/score_manager.gd"
 
 [editor_plugins]
 

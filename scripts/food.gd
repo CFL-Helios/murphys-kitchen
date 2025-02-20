@@ -10,11 +10,16 @@ func _ready() -> void:
 		if child is FoodItem:
 			food_items.push_back(child)
 
-func highlight(_on: bool):
+func highlight(_on: bool) -> Array[MeshInstance3D]:
 	var food_meshes : Array[MeshInstance3D]
 	for item in food_items:
 		if item:
 			for mesh in item.get_meshes():
 				mesh.material_overlay = highlight_mat if _on else null
-
 	return food_meshes
+
+func get_score() -> int:
+	var score : int = 0
+	for item in food_items:
+		if item: score += 1
+	return score
