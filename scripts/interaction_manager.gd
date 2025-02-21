@@ -42,15 +42,15 @@ func _reduce_by_dist(area1: InteractionArea, area2: InteractionArea):
 	return area1 if a1_dist < a2_dist else area2
 
 func _input(event: InputEvent) -> void:
-	if not event.is_action_pressed("interact"):
-		return
+	if not event.is_action_pressed("interact"): return
 		
 	if holding_object: 
 		if active_placements.is_empty(): player.drop_pickup()
 		else: 
 			player.pickup.score()
-			player.place_pickup(closest_placement.global_position)
+			closest_placement.place_pickup()
 			closest_placement.highlight(false)
+			player.place_pickup(closest_placement.global_position)
 		
 		holding_object = false
 		closest_pickup = _get_closest(active_pickups)

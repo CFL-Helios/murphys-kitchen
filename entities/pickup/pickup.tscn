@@ -22,6 +22,8 @@ metadata/_edit_group_ = true
 [node name="Plate" type="RigidBody3D" parent="." groups=["Food Safe"]]
 collision_layer = 4
 collision_mask = 7
+axis_lock_linear_x = true
+axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 freeze_mode = 1
@@ -43,4 +45,4 @@ food = NodePath("../../Food")
 shape = SubResource("SphereShape3D_d8ca8")
 
 [node name="Food" parent="." instance=ExtResource("2_w7cft")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.101141, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0382179, 0)
