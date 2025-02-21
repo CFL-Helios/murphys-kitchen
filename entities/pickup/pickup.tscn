@@ -45,4 +45,4 @@ food = NodePath("../../Food")
 shape = SubResource("SphereShape3D_d8ca8")
 
 [node name="Food" parent="." instance=ExtResource("2_w7cft")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0382179, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0305173, 0)

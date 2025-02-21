@@ -99,9 +99,9 @@ func take_pickup(new_pickup: Pickup):
 
 	pickup.dish.freeze = true
 	
-	var pos_diff = pickup.dish.global_position - pickup_socket.global_position
+	var pos_diff = pickup_socket.global_position - pickup.dish.global_position 
 	pickup.dish.global_position = pickup_socket.global_position
-	pickup.food.global_position -= pos_diff
+	pickup.food.global_position += pos_diff
 	
 func drop_pickup():
 	place_pickup(drop_socket.global_position)

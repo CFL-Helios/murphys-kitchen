@@ -6,8 +6,11 @@ var food_meshes : Array[MeshInstance3D]
 func _ready() -> void:
 	var children = get_children()
 	for child in children:
+		print(child)
 		if child is MeshInstance3D:
 			food_meshes.push_back(child)
+			
+			
 
 func get_meshes() -> Array[MeshInstance3D]:
 	return food_meshes
