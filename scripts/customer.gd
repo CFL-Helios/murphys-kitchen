@@ -1,16 +1,62 @@
-extends CharacterBody3D
+class_name Customer extends CharacterBody3D
 
 @onready var nav_agent : NavigationAgent3D = $NavAgent
+@onready var timer : Timer = $Timer
 
-@export var speed : float
-@export var arrival_dist : float
+@export var speed : float = 5
+
+var door : Node3D
+var seat : Placement
+var eaten : bool = false
+var moving : bool = true
 
 func _physics_process(delta: float) -> void:
-	if nav_agent.target_position.distance_to(global_position) < arrival_dist:
-		print("arrived")
-		
-	velocity = (nav_agent.get_next_path_position() - global_position).normalized() * speed
+	if not moving: 
+		look_at_table()
+		return
+	
+	var target_dir = (nav_agent.get_next_path_position() - global_position).normalized()
+	var move_dir := Vector3(target_dir.x, 0, target_dir.z)
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+	
+	if move_dir:
+		move_dir *= speed
+		velocity.x = move_toward(velocity.x, move_dir.x, 10)
+		velocity.z = move_toward(velocity.z, move_dir.z, 10)
+	
+	var look_at_target = Vector3(global_position.x + velocity.x, global_position.y, global_position.z + velocity.z)
+	if not look_at_target.is_equal_approx(global_position): look_at(look_at_target, up_direction, true)
+	
 	move_and_slide()
 
-func update_target_pos(target_pos: Vector3):
+func update_seat(placement : Placement) -> void:
+	seat = placement
+	update_target_pos(seat.chair.global_position)
+
+func update_target_pos(target_pos: Vector3) -> void:
 	nav_agent.target_position = target_pos
+
+func sit() -> void:
+	if seat.pickup: eat()
+	else: seat.pickup_placed.connect(eat)
+
+func look_at_table() -> void:
+	var look_at_target = seat.place_mesh.global_position
+	look_at_target.y = seat.chair.global_position.y
+	look_at_from_position(seat.chair.global_position, look_at_target, up_direction, true)
+
+func _on_nav_agent_navigation_finished() -> void:
+	moving = false
+	if not eaten: sit()
+	else: queue_free()
+
+func eat() -> void:
+	seat.pickup_placed.disconnect(eat)
+	timer.start()
+
+func _on_timer_timeout() -> void:
+	seat.free_seat()
+	eaten = true
+	moving = true
+	update_target_pos(door.global_position)

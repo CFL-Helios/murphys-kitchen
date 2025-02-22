@@ -70,7 +70,11 @@ func _physics_process(delta: float) -> void:
 	
 	# Use velocity to actually move
 	move_and_slide()
-	if pickup: pickup.dish.global_position = pickup_socket.global_position
+	
+	if pickup: 
+		var move_v = velocity * delta
+		move_v.y = 0
+		pickup.dish.global_position += move_v
 	
 func calculate_velocity():
 	var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)
@@ -96,19 +100,15 @@ func has_moved() -> bool:
 	
 func take_pickup(new_pickup: Pickup):
 	pickup = new_pickup
+	
+	var pos_diff = pickup_socket.global_position - pickup.dish.global_position 
+	pickup.dish.global_position += pos_diff
+	pickup.food.global_position += pos_diff 
 
-	pickup.dish.freeze = true
-	
-	var pos_diff = pickup.dish.global_position - pickup_socket.global_position
-	pickup.dish.global_position = pickup_socket.global_position
-	pickup.food.global_position -= pos_diff
-	
 func drop_pickup():
 	place_pickup(drop_socket.global_position)
 	
 func place_pickup(place_pos : Vector3):
-	pickup.dish.freeze = false
-	
 	var pos_diff = pickup.dish.global_position - place_pos
 	pickup.dish.global_position = place_pos
 	pickup.food.global_position -= pos_diff

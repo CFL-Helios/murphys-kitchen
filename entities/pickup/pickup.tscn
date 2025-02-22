@@ -5,13 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://ca3afvivsj2h0" path="res://entities/pickup/food.tscn" id="2_w7cft"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_w2yne"]
-height = 0.05
+height = 0.1
 radius = 0.2
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_w7cft"]
 top_radius = 0.2
 bottom_radius = 0.15
-height = 0.05
+height = 0.1
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_d8ca8"]
 radius = 1.0
@@ -21,11 +21,12 @@ metadata/_edit_group_ = true
 
 [node name="Plate" type="RigidBody3D" parent="." groups=["Food Safe"]]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 15
 axis_lock_linear_x = true
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_z = true
+lock_rotation = true
 freeze_mode = 1
 continuous_cd = true
 
@@ -45,4 +46,4 @@ food = NodePath("../../Food")
 shape = SubResource("SphereShape3D_d8ca8")
 
 [node name="Food" parent="." instance=ExtResource("2_w7cft")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0382179, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.040515, 0)

@@ -2,8 +2,10 @@ class_name Placement extends InteractionArea
 
 @onready var place_mesh : MeshInstance3D = $InteractionMesh
 
+@export var chair : RigidBody3D
+
 var pickup : InteractionArea
-signal pickup_placed(pickup: Pickup)
+signal pickup_placed()
 signal freed(placement: Placement)
 
 func _ready() -> void:
@@ -14,7 +16,11 @@ func highlight(_on: bool):
 
 func place_pickup(newPickup):
 	pickup = newPickup
-	pickup_placed.emit(pickup)
+	pickup_placed.emit()
+	active = false
 
 func free_seat() -> void:
+	pickup.eat()
+	pickup = null
 	freed.emit(self)
+	active = true

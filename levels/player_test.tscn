@@ -1,9 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bbqa0cjoaphvd"]
+[gd_scene load_steps=13 format=3 uid="uid://bbqa0cjoaphvd"]
 
 [ext_resource type="PackedScene" uid="uid://ca33na7xn7nu2" path="res://entities/player/player.tscn" id="1_0ccno"]
+[ext_resource type="PackedScene" uid="uid://c0py45xar41vs" path="res://entities/game_manager.tscn" id="1_65vfg"]
 [ext_resource type="PackedScene" uid="uid://dg30bh718u76n" path="res://entities/pickup/pickup.tscn" id="2_hy58v"]
-[ext_resource type="PackedScene" uid="uid://4s7ij0nr3tis" path="res://entities/placements/placement.tscn" id="3_x2p0s"]
+[ext_resource type="PackedScene" uid="uid://su346v1aikww" path="res://entities/customer/spawner.tscn" id="4_78qg3"]
 [ext_resource type="Script" uid="uid://cuget5syu6iqu" path="res://scripts/tables.gd" id="4_xnitr"]
+[ext_resource type="PackedScene" uid="uid://bc160qkxdw1i2" path="res://entities/seat/seat.tscn" id="6_65vfg"]
+[ext_resource type="PackedScene" uid="uid://1bdb4jkek2fx" path="res://entities/HUD.tscn" id="6_78qg3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cqog6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -19,8 +22,8 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_x2p0s"]
-vertices = PackedVector3Array(-1.5487, -0.109217, -0.91355, -1.0487, -0.109217, -1.16355, -1.0487, -0.109217, -2.66355, -6.7987, -0.109217, -6.16355, -6.7987, -0.109217, 1.33645, -0.0486999, -0.109217, -2.91355, -0.0486999, -0.109217, -6.16355, -1.2987, -0.109217, 1.08645, 1.2013, -0.109217, -2.41355, 1.7013, -0.109217, 0.0864501, 6.7013, -0.109217, 0.0864501, 6.7013, -0.109217, -6.16355, -0.5487, 0.790783, -0.41355, -0.2987, 0.790783, 0.58645, 0.4513, 0.790783, 0.33645, 0.2013, 0.790783, -0.66355, 1.2013, -0.109217, 1.33645, -0.0486999, -0.109217, 1.58645, -0.0486999, -0.109217, 6.08645, 6.7013, -0.109217, 6.08645, -6.7987, -0.109217, 6.08645)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 4), PackedInt32Array(2, 4, 3), PackedInt32Array(5, 2, 6), PackedInt32Array(6, 2, 3), PackedInt32Array(0, 7, 4), PackedInt32Array(8, 5, 6), PackedInt32Array(10, 9, 8), PackedInt32Array(6, 11, 8), PackedInt32Array(8, 11, 10), PackedInt32Array(15, 14, 12), PackedInt32Array(12, 14, 13), PackedInt32Array(18, 17, 16), PackedInt32Array(9, 10, 16), PackedInt32Array(16, 10, 19), PackedInt32Array(16, 19, 18), PackedInt32Array(17, 18, 7), PackedInt32Array(7, 18, 4), PackedInt32Array(4, 18, 20)]
+vertices = PackedVector3Array(-6.7987, -0.109217, 0.0864501, -2.7987, -0.109217, 0.0864501, -2.7987, -0.109217, -0.66355, -1.7987, -0.109217, -1.41355, 0.2013, -0.109217, -1.66355, -0.0486999, -0.109217, -6.16355, -6.7987, -0.109217, -6.16355, 1.4513, -0.109217, -1.16355, 6.7013, -0.109217, 0.0864501, 6.7013, -0.109217, -6.16355, 1.7013, -0.109217, 0.0864501, -2.2987, -0.109217, 1.33645, -0.5487, -0.109217, 6.08645, -0.5487, -0.109217, 1.83645, -6.7987, -0.109217, 6.08645, 1.2013, -0.109217, 1.33645, 6.7013, -0.109217, 6.08645)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 6), PackedInt32Array(3, 6, 5), PackedInt32Array(4, 5, 7), PackedInt32Array(7, 5, 9), PackedInt32Array(7, 9, 8), PackedInt32Array(8, 10, 7), PackedInt32Array(11, 0, 1), PackedInt32Array(13, 12, 11), PackedInt32Array(11, 12, 14), PackedInt32Array(11, 14, 0), PackedInt32Array(15, 12, 13), PackedInt32Array(10, 8, 15), PackedInt32Array(15, 8, 16), PackedInt32Array(15, 16, 12)]
 cell_height = 0.1
 agent_max_climb = 0.1
 
@@ -28,6 +31,8 @@ agent_max_climb = 0.1
 albedo_color = Color(0.336762, 0.285459, 0.184156, 1)
 
 [node name="PlayerTest" type="Node3D"]
+
+[node name="GameManager" parent="." instance=ExtResource("1_65vfg")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_52ys1")
@@ -40,13 +45,23 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1659, 0, 0)
 
 [node name="Pickup" parent="." instance=ExtResource("2_hy58v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.91974, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.36292, 0, 0)
 
-[node name="Placement" parent="." instance=ExtResource("3_x2p0s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.27048, -0.138983, -3.43167)
+[node name="Spawner" parent="." node_paths=PackedStringArray("tables") instance=ExtResource("4_78qg3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.50975, 1.08902, 4.2071)
+tables = NodePath("../NavigationRegion3D/Tables")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_x2p0s")
+
+[node name="Tables" type="Node3D" parent="NavigationRegion3D"]
+script = ExtResource("4_xnitr")
+
+[node name="Seat" parent="NavigationRegion3D/Tables" instance=ExtResource("6_65vfg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72233, -0.268534, 0.106545)
+
+[node name="Seat2" parent="NavigationRegion3D/Tables" instance=ExtResource("6_65vfg")]
+transform = Transform3D(-0.951013, 0, -0.30915, 0, 1, 0, 0.30915, 0, -0.951013, 1.61704, -0.414709, -0.492629)
 
 [node name="Level" type="CSGCombiner3D" parent="NavigationRegion3D"]
 material_override = SubResource("StandardMaterial3D_x2p0s")
@@ -57,14 +72,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.809217, 0)
 use_collision = true
 size = Vector3(14.5974, 1, 13.3271)
 
-[node name="Seat" type="CSGCylinder3D" parent="NavigationRegion3D/Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.109411, -1.81379)
-height = 0.5
-
 [node name="Table" type="CSGCylinder3D" parent="NavigationRegion3D/Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.134451, 0)
 radius = 1.0
 height = 1.0
 
-[node name="Tables" type="Node3D" parent="."]
-script = ExtResource("4_xnitr")
+[node name="Hud" parent="." instance=ExtResource("6_78qg3")]
+
+[editable path="NavigationRegion3D/Tables/Seat"]
+[editable path="NavigationRegion3D/Tables/Seat/Placement"]

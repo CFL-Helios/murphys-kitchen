@@ -1,4 +1,4 @@
-extends Node3D
+class_name InteractionManager extends Node3D
 
 @onready var player : TopDownPlayer = get_tree().get_first_node_in_group("Player")
 
@@ -8,6 +8,9 @@ var active_placements : Array[InteractionArea] = []
 var closest_pickup : InteractionArea
 var closest_placement : InteractionArea
 var holding_object : bool = false
+
+func _init() -> void:
+	ScoreManager.interaction_manager = self
 
 func reg_area(area: InteractionArea):
 	if area is Pickup: active_pickups.push_back(area)
@@ -19,7 +22,7 @@ func unreg_area(area: InteractionArea):
 	else: active_placements.erase(area)
 	
 func _process(_delta: float) -> void:
-	if not player.has_moved(): return
+	if not player or not player.has_moved(): return
 	elif holding_object and not active_placements.is_empty():
 		closest_placement = _get_closest(active_placements)
 	elif not holding_object and not active_pickups.is_empty():
@@ -48,7 +51,7 @@ func _input(event: InputEvent) -> void:
 		if active_placements.is_empty(): player.drop_pickup()
 		else: 
 			player.pickup.score()
-			closest_placement.place_pickup()
+			closest_placement.place_pickup(player.pickup)
 			closest_placement.highlight(false)
 			player.place_pickup(closest_placement.global_position)
 		

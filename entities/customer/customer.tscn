@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://pufc8fyqh1xk" path="res://scripts/customer.gd" id="1_dhnu5"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y37d0"]
-albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dhnu5"]
+albedo_color = Color(0.64, 0.1024, 0.1024, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dhnu5"]
+material = SubResource("StandardMaterial3D_dhnu5")
 radius = 0.4
 height = 1.8
 
@@ -17,13 +18,15 @@ radius = 0.4
 height = 1.8
 
 [node name="Customer" type="CharacterBody3D"]
+collision_layer = 16
+collision_mask = 7
 script = ExtResource("1_dhnu5")
+speed = 2.0
 
 [node name="NavAgent" type="NavigationAgent3D" parent="."]
 
 [node name="CustomerMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-material_override = SubResource("StandardMaterial3D_y37d0")
 gi_mode = 2
 mesh = SubResource("CapsuleMesh_dhnu5")
 
@@ -34,3 +37,10 @@ mesh = SubResource("BoxMesh_r1km4")
 [node name="CustomerCollider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_8ct44")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="navigation_finished" from="NavAgent" to="." method="_on_nav_agent_navigation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
