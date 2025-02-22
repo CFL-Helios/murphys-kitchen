@@ -1,4 +1,4 @@
-extends Node3D
+class_name TableManager extends Node3D
 
 var vacant : Array[Placement]
 var occupied : Array[Placement]
@@ -16,6 +16,9 @@ func get_vacant() -> Placement:
 	vacant.remove_at(idx)
 	occupied.push_back(seat)
 	return seat
+
+func has_vacant() -> bool:
+	return not vacant.is_empty()
 
 func free_seat(placement: Placement):
 	occupied.erase(placement)

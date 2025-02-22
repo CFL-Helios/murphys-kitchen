@@ -17,6 +17,8 @@ radius = 0.4
 height = 1.8
 
 [node name="Customer" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_dhnu5")
 
 [node name="NavAgent" type="NavigationAgent3D" parent="."]
@@ -34,3 +36,10 @@ mesh = SubResource("BoxMesh_r1km4")
 [node name="CustomerCollider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_8ct44")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="navigation_finished" from="NavAgent" to="." method="_on_nav_agent_navigation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bc160qkxdw1i2"]
 
-[ext_resource type="PackedScene" uid="uid://4s7ij0nr3tis" path="res://entities/placements/placement.tscn" id="1_3mmfg"]
+[ext_resource type="PackedScene" uid="uid://4s7ij0nr3tis" path="res://entities/seat/placement.tscn" id="1_3mmfg"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_xffdg"]
 height = 0.5
@@ -9,6 +9,10 @@ height = 0.5
 height = 0.5
 
 [node name="Seat" type="Node3D"]
+
+[node name="Placement" parent="." node_paths=PackedStringArray("chair") instance=ExtResource("1_3mmfg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.992758, 0.959318, 0)
+chair = NodePath("../Chair")
 
 [node name="Chair" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
@@ -21,5 +25,3 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Chair"]
 shape = SubResource("CylinderShape3D_3mmfg")
-
-[node name="Placement" parent="." instance=ExtResource("1_3mmfg")]
