@@ -8,8 +8,13 @@ class_name Customer extends CharacterBody3D
 var door : Node3D
 var seat : Placement
 var eaten : bool = false
+var moving : bool = true
 
 func _physics_process(delta: float) -> void:
+	if not moving: 
+		look_at_table()
+		return
+	
 	var target_dir = (nav_agent.get_next_path_position() - global_position).normalized()
 	var move_dir := Vector3(target_dir.x, 0, target_dir.z)
 	if not is_on_floor():
@@ -33,11 +38,16 @@ func update_target_pos(target_pos: Vector3) -> void:
 	nav_agent.target_position = target_pos
 
 func sit() -> void:
-	look_at_from_position(seat.chair.global_position, seat.global_position - seat.chair.global_position)
 	if seat.pickup: eat()
 	else: seat.pickup_placed.connect(eat)
 
+func look_at_table() -> void:
+	var look_at_target = seat.place_mesh.global_position
+	look_at_target.y = seat.chair.global_position.y
+	look_at_from_position(seat.chair.global_position, look_at_target, up_direction, true)
+
 func _on_nav_agent_navigation_finished() -> void:
+	moving = false
 	if not eaten: sit()
 	else: queue_free()
 
@@ -48,4 +58,5 @@ func eat() -> void:
 func _on_timer_timeout() -> void:
 	seat.free_seat()
 	eaten = true
+	moving = true
 	update_target_pos(door.global_position)

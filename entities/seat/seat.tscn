@@ -14,6 +14,9 @@ height = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3831, 1.39169, 0)
 chair = NodePath("../Chair")
 
+[node name="InteractionCollider" parent="Placement" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.875842, 0, 0)
+
 [node name="Chair" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 collision_layer = 8
@@ -25,3 +28,5 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Chair"]
 shape = SubResource("CylinderShape3D_3mmfg")
+
+[editable path="Placement"]

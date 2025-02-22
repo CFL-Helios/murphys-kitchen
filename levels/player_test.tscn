@@ -58,7 +58,7 @@ script = ExtResource("4_xnitr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72233, -0.268534, 0.106545)
 
 [node name="Seat2" parent="NavigationRegion3D/Tables" instance=ExtResource("6_65vfg")]
-transform = Transform3D(-0.998727, 0, 0.050436, 0, 1, 0, -0.050436, 0, -0.998727, 1.61704, -0.414709, -0.492629)
+transform = Transform3D(-0.951013, 0, -0.30915, 0, 1, 0, 0.30915, 0, -0.951013, 1.61704, -0.414709, -0.492629)
 
 [node name="Level" type="CSGCombiner3D" parent="NavigationRegion3D"]
 material_override = SubResource("StandardMaterial3D_x2p0s")
@@ -77,3 +77,4 @@ height = 1.0
 [node name="Hud" parent="." instance=ExtResource("6_78qg3")]
 
 [editable path="NavigationRegion3D/Tables/Seat"]
+[editable path="NavigationRegion3D/Tables/Seat/Placement"]

@@ -1,6 +1,7 @@
 class_name Placement extends InteractionArea
 
 @onready var place_mesh : MeshInstance3D = $InteractionMesh
+
 @export var chair : RigidBody3D
 
 var pickup : InteractionArea
