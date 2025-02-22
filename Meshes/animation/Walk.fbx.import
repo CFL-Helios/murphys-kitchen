@@ -3,20 +3,20 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://byfkef552fv6h"
-path="res://.godot/imported/circletable.gltf-e86b25e286f344e6bbb82609d9f2aa96.scn"
+uid="uid://bjn0hp62wg7l5"
+path="res://.godot/imported/Walk.fbx-47964c30d6ef9f8a185c135fcb06aa61.scn"
 
 [deps]
 
-source_file="res://Meshes/circletable/circletable.gltf"
-dest_files=["res://.godot/imported/circletable.gltf-e86b25e286f344e6bbb82609d9f2aa96.scn"]
+source_file="res://Meshes/animation/Walk.fbx"
+dest_files=["res://.godot/imported/Walk.fbx-47964c30d6ef9f8a185c135fcb06aa61.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
-nodes/root_scale=0.25
+nodes/root_scale=0.27
 nodes/import_as_skeleton_bones=false
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
@@ -28,18 +28,11 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=false
+animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:Plane_001": {
-"generate/physics": true,
-"physics/layer": 8,
-"physics/shape_type": 0
-}
-}
-}
-gltf/naming_version=1
-gltf/embedded_image_handling=1
+_subresources={}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
