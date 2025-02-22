@@ -3,6 +3,8 @@ extends Node
 var score : int = 0
 signal score_changed(score : int)
 
+var interaction_manager : InteractionManager
+
 func add_score(points : int):
 	score += points
 	score_changed.emit(score)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bbqa0cjoaphvd"]
+[gd_scene load_steps=13 format=3 uid="uid://bbqa0cjoaphvd"]
 
 [ext_resource type="PackedScene" uid="uid://ca33na7xn7nu2" path="res://entities/player/player.tscn" id="1_0ccno"]
+[ext_resource type="PackedScene" uid="uid://c0py45xar41vs" path="res://entities/game_manager.tscn" id="1_65vfg"]
 [ext_resource type="PackedScene" uid="uid://dg30bh718u76n" path="res://entities/pickup/pickup.tscn" id="2_hy58v"]
 [ext_resource type="PackedScene" uid="uid://su346v1aikww" path="res://entities/customer/spawner.tscn" id="4_78qg3"]
 [ext_resource type="Script" uid="uid://cuget5syu6iqu" path="res://scripts/tables.gd" id="4_xnitr"]
@@ -30,6 +31,8 @@ agent_max_climb = 0.1
 albedo_color = Color(0.336762, 0.285459, 0.184156, 1)
 
 [node name="PlayerTest" type="Node3D"]
+
+[node name="GameManager" parent="." instance=ExtResource("1_65vfg")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_52ys1")

@@ -1,4 +1,4 @@
-extends Node3D
+class_name InteractionManager extends Node3D
 
 @onready var player : TopDownPlayer = get_tree().get_first_node_in_group("Player")
 
@@ -8,6 +8,9 @@ var active_placements : Array[InteractionArea] = []
 var closest_pickup : InteractionArea
 var closest_placement : InteractionArea
 var holding_object : bool = false
+
+func _init() -> void:
+	ScoreManager.interaction_manager = self
 
 func reg_area(area: InteractionArea):
 	if area is Pickup: active_pickups.push_back(area)

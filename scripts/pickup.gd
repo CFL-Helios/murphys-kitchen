@@ -10,7 +10,7 @@ func highlight(_on: bool) -> void:
 
 func score() -> void:
 	ScoreManager.score += food.get_score()
-	InteractionManager.unreg_area(self)
+	ScoreManager.interaction_manager.unreg_area(self)
 	active = false
 
 func eat() -> void:
