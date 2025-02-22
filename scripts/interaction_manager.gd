@@ -19,7 +19,7 @@ func unreg_area(area: InteractionArea):
 	else: active_placements.erase(area)
 	
 func _process(_delta: float) -> void:
-	if not player.has_moved(): return
+	if not player or not player.has_moved(): return
 	elif holding_object and not active_placements.is_empty():
 		closest_placement = _get_closest(active_placements)
 	elif not holding_object and not active_pickups.is_empty():
