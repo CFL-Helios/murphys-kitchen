@@ -40,7 +40,7 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1659, 0, 0)
 
 [node name="Pickup" parent="." instance=ExtResource("2_hy58v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.91974, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.34466, 0, 0)
 
 [node name="Placement" parent="." instance=ExtResource("3_x2p0s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.27048, -0.138983, -3.43167)
