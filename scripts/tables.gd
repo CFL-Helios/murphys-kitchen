@@ -4,7 +4,7 @@ var vacant : Array[Placement]
 var occupied : Array[Placement]
 
 func _ready() -> void:
-	var children = get_children()
+	var children = ScoreManager.get_all_children(self)
 	for child in children:
 		if child is Placement:
 			vacant.push_back(child)

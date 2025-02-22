@@ -13,7 +13,6 @@ func get_meshes() -> Array[MeshInstance3D]:
 	return food_meshes
 
 func _on_body_entered(body: Node) -> void:
-	print(body.name)
 	if body.is_in_group("Food Safe"): return
 	
 	splatter.reparent(body)

@@ -6,10 +6,11 @@
 [ext_resource type="Script" uid="uid://bs4k2wlai0k7m" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_dirf7"]
 [ext_resource type="Resource" uid="uid://1vug1e8bkd7o" path="res://entities/player/player_cam.tres" id="5_idpv6"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ct82r"]
-albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fkugw"]
+albedo_color = Color(0.0832, 0.3616, 0.64, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_wk2hj"]
+material = SubResource("StandardMaterial3D_fkugw")
 radius = 0.4
 height = 1.8
 
@@ -43,7 +44,6 @@ input_jump = "jump"
 
 [node name="PlayerMesh" type="MeshInstance3D" parent="PlayerCharacter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-material_override = SubResource("StandardMaterial3D_ct82r")
 gi_mode = 2
 mesh = SubResource("CapsuleMesh_wk2hj")
 

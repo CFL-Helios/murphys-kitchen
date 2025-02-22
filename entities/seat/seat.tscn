@@ -11,7 +11,7 @@ height = 0.5
 [node name="Seat" type="Node3D"]
 
 [node name="Placement" parent="." node_paths=PackedStringArray("chair") instance=ExtResource("1_3mmfg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.992758, 0.959318, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3831, 1.39169, 0)
 chair = NodePath("../Chair")
 
 [node name="Chair" type="RigidBody3D" parent="."]
