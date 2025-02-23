@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvn61fdcos73l"]
+
+[ext_resource type="Script" uid="uid://m4bkeklkufta" path="res://scripts/food_spawner.gd" id="1_fjykg"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fjykg"]
+top_radius = 0.2
+bottom_radius = 0.15
+height = 0.1
+
+[node name="FoodSpawner" type="Node3D"]
+script = ExtResource("1_fjykg")
+
+[node name="PlateMesh" type="MeshInstance3D" parent="."]
+gi_mode = 2
+mesh = SubResource("CylinderMesh_fjykg")
+skeleton = NodePath("../Timer")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
