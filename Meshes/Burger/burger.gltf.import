@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ulb4aqhyv0xn"
-path="res://.godot/imported/burger.gltf-3cfbbf2c168a558be5cc37f0ef056f9e.scn"
+path="res://.godot/imported/burger.gltf-97a2c14db208f32d74b3a453cad77b2b.scn"
 
 [deps]
 
-source_file="res://Meshes/Burger/burger.gltf"
-dest_files=["res://.godot/imported/burger.gltf-3cfbbf2c168a558be5cc37f0ef056f9e.scn"]
+source_file="res://meshes/Burger/burger.gltf"
+dest_files=["res://.godot/imported/burger.gltf-97a2c14db208f32d74b3a453cad77b2b.scn"]
 
 [params]
 

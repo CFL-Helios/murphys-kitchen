@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://su346v1aikww"]
+[gd_scene load_steps=5 format=3 uid="uid://su346v1aikww"]
 
 [ext_resource type="Script" uid="uid://djcqmpl1o3gdr" path="res://scripts/spawner.gd" id="1_nqiyp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dhnu5"]
+albedo_color = Color(0.64, 0.1024, 0.1024, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nqiyp"]
+material = SubResource("StandardMaterial3D_dhnu5")
+radius = 0.4
+height = 1.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_aybii"]
+size = Vector3(0.25, 0.25, 0.25)
 
 [node name="Spawner" type="Node3D"]
 script = ExtResource("1_nqiyp")
@@ -8,5 +19,14 @@ script = ExtResource("1_nqiyp")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="CustomerMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+gi_mode = 2
+mesh = SubResource("CapsuleMesh_nqiyp")
+
+[node name="DirectionIndicator" type="MeshInstance3D" parent="CustomerMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.496169)
+mesh = SubResource("BoxMesh_aybii")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
