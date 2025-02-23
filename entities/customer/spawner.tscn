@@ -17,7 +17,7 @@ size = Vector3(0.25, 0.25, 0.25)
 script = ExtResource("1_nqiyp")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 10.0
 autostart = true
 
 [node name="CustomerMesh" type="MeshInstance3D" parent="."]
