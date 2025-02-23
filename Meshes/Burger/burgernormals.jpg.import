@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2vwrnlyocmd6"
-path.s3tc="res://.godot/imported/burgernormals.jpg-2aa244f7ce9087a8a0a2105476676d7a.s3tc.ctex"
+path.s3tc="res://.godot/imported/burgernormals.jpg-b5d2ca7dbef5dedc7335f63791aed408.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://meshes/Burger/burgernormals.jpg"
-dest_files=["res://.godot/imported/burgernormals.jpg-2aa244f7ce9087a8a0a2105476676d7a.s3tc.ctex"]
+source_file="res://Meshes/Burger/burgernormals.jpg"
+dest_files=["res://.godot/imported/burgernormals.jpg-b5d2ca7dbef5dedc7335f63791aed408.s3tc.ctex"]
 
 [params]
 

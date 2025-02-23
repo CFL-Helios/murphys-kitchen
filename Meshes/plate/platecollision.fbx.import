@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://deyvdscqphvdg"
-path="res://.godot/imported/platecollision.fbx-22e1570373b50727574169849f72fd8c.scn"
+path="res://.godot/imported/platecollision.fbx-d7e6a6c6287efc528b9f920a37923e5f.scn"
 
 [deps]
 
-source_file="res://meshes/plate/platecollision.fbx"
-dest_files=["res://.godot/imported/platecollision.fbx-22e1570373b50727574169849f72fd8c.scn"]
+source_file="res://Meshes/plate/platecollision.fbx"
+dest_files=["res://.godot/imported/platecollision.fbx-d7e6a6c6287efc528b9f920a37923e5f.scn"]
 
 [params]
 
