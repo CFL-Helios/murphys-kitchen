@@ -253,7 +253,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.1953
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.5708, 0, 7.88427)
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("tables") instance=ExtResource("8_a8v1b")]
-transform = Transform3D(-0.0736037, 0, 0.997288, 0, 1, 0, -0.997288, 0, -0.0736037, 7.19892, 9.53674e-07, 7.43853)
+transform = Transform3D(-0.913978, 0, -0.405764, 0, 1, 0, 0.405764, 0, -0.913978, 7.19892, 9.53674e-07, 7.43853)
 tables = NodePath("../NavigationRegion3D/Chairs")
 
 [node name="GameManager" parent="." instance=ExtResource("10_vqm0c")]
