@@ -20,7 +20,7 @@
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_48ea6"]
 sky_top_color = Color(0.2448, 0.520427, 0.68, 1)
 sky_horizon_color = Color(0.621, 0.7884, 0.9, 1)
-ground_bottom_color = Color(0.41075, 0.53, 0.2438, 1)
+ground_bottom_color = Color(0.361167, 0.44, 0.2508, 1)
 ground_horizon_color = Color(0.5184, 0.64, 0.52448, 1)
 
 [sub_resource type="Sky" id="Sky_x7hu8"]
@@ -28,10 +28,13 @@ sky_material = SubResource("ProceduralSkyMaterial_48ea6")
 
 [sub_resource type="Environment" id="Environment_x7hu8"]
 background_mode = 2
+background_color = Color(0.168627, 0.713726, 0.933333, 1)
 sky = SubResource("Sky_x7hu8")
-ambient_light_source = 3
+ambient_light_source = 2
+ambient_light_color = Color(0.6, 0.501, 0.402, 1)
 reflected_light_source = 2
 tonemap_mode = 2
+tonemap_white = 1.1
 ssao_enabled = true
 ssil_enabled = true
 sdfgi_enabled = true
@@ -40,7 +43,8 @@ fog_light_color = Color(0.619608, 0.788235, 0.901961, 1)
 fog_light_energy = 0.1
 fog_sky_affect = 0.0
 adjustment_enabled = true
-adjustment_contrast = 1.1
+adjustment_brightness = 1.25
+adjustment_contrast = 1.25
 adjustment_saturation = 1.25
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_48ea6"]
@@ -63,6 +67,7 @@ environment = SubResource("Environment_x7hu8")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.978043, 0.0250003, -0.206896, -0.198748, 0.186759, 0.962092, 0.0626923, 0.982088, -0.17769, 0, 0, 0)
+light_energy = 0.5
 shadow_enabled = true
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]

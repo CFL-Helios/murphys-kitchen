@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4ejdclo47twn"
-path.s3tc="res://.godot/imported/tilee_Roughness.png-49b0dc1ebfab9b0c7cd8c84ea4f92868.s3tc.ctex"
+path.s3tc="res://.godot/imported/tilee_Roughness.png-f5ab680b6cda6cd9b5b8caaf591535f6.s3tc.ctex"
+path.etc2="res://.godot/imported/tilee_Roughness.png-f5ab680b6cda6cd9b5b8caaf591535f6.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
-source_file="res://Meshes/tile/textures/tilee_Roughness.png"
-dest_files=["res://.godot/imported/tilee_Roughness.png-49b0dc1ebfab9b0c7cd8c84ea4f92868.s3tc.ctex"]
+source_file="res://meshes/tile/textures/tilee_Roughness.png"
+dest_files=["res://.godot/imported/tilee_Roughness.png-f5ab680b6cda6cd9b5b8caaf591535f6.s3tc.ctex", "res://.godot/imported/tilee_Roughness.png-f5ab680b6cda6cd9b5b8caaf591535f6.etc2.ctex"]
 
 [params]
 

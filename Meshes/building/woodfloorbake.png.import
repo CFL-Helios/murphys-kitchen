@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bihbowe65m7kj"
-path.s3tc="res://.godot/imported/woodfloorbake.png-4c8594c8387a3e1f44ec0a9e72f2b314.s3tc.ctex"
+path.s3tc="res://.godot/imported/woodfloorbake.png-d57d323519090843f82b90303c79263e.s3tc.ctex"
+path.etc2="res://.godot/imported/woodfloorbake.png-d57d323519090843f82b90303c79263e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
-source_file="res://Meshes/building/woodfloorbake.png"
-dest_files=["res://.godot/imported/woodfloorbake.png-4c8594c8387a3e1f44ec0a9e72f2b314.s3tc.ctex"]
+source_file="res://meshes/building/woodfloorbake.png"
+dest_files=["res://.godot/imported/woodfloorbake.png-d57d323519090843f82b90303c79263e.s3tc.ctex", "res://.godot/imported/woodfloorbake.png-d57d323519090843f82b90303c79263e.etc2.ctex"]
 
 [params]
 

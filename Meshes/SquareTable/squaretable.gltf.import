@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bfwvjsqrt21l1"
-path="res://.godot/imported/squaretable.gltf-4235e7a4aae529060a6107422401de72.scn"
+path="res://.godot/imported/squaretable.gltf-d1c33b0ee9ea1710d273e0ab6b0785e5.scn"
 
 [deps]
 
-source_file="res://Meshes/SquareTable/squaretable.gltf"
-dest_files=["res://.godot/imported/squaretable.gltf-4235e7a4aae529060a6107422401de72.scn"]
+source_file="res://meshes/SquareTable/squaretable.gltf"
+dest_files=["res://.godot/imported/squaretable.gltf-d1c33b0ee9ea1710d273e0ab6b0785e5.scn"]
 
 [params]
 

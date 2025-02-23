@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpu4pypa8bte4"
-path.s3tc="res://.godot/imported/Bricks071_2K_Color.jpg-3c354f510403703c704cbed55bdb29dc.s3tc.ctex"
+path.s3tc="res://.godot/imported/Bricks071_2K_Color.jpg-cb41217cebe0718e5ab03567070ad0b8.s3tc.ctex"
+path.etc2="res://.godot/imported/Bricks071_2K_Color.jpg-cb41217cebe0718e5ab03567070ad0b8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
-source_file="res://Meshes/building/Bricks071_2K_Color.jpg"
-dest_files=["res://.godot/imported/Bricks071_2K_Color.jpg-3c354f510403703c704cbed55bdb29dc.s3tc.ctex"]
+source_file="res://meshes/building/Bricks071_2K_Color.jpg"
+dest_files=["res://.godot/imported/Bricks071_2K_Color.jpg-cb41217cebe0718e5ab03567070ad0b8.s3tc.ctex", "res://.godot/imported/Bricks071_2K_Color.jpg-cb41217cebe0718e5ab03567070ad0b8.etc2.ctex"]
 
 [params]
 

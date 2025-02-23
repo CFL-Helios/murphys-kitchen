@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cmf7hctcmo1ws"
-path="res://.godot/imported/booth.gltf-7dbee0c4640637f5c673e6138b1f5e2c.scn"
+path="res://.godot/imported/booth.gltf-db3e76f519811455650a009c8702fb0b.scn"
 
 [deps]
 
-source_file="res://Meshes/boothexport/booth.gltf"
-dest_files=["res://.godot/imported/booth.gltf-7dbee0c4640637f5c673e6138b1f5e2c.scn"]
+source_file="res://meshes/boothexport/booth.gltf"
+dest_files=["res://.godot/imported/booth.gltf-db3e76f519811455650a009c8702fb0b.scn"]
 
 [params]
 
@@ -36,7 +36,7 @@ _subresources={
 "nodes": {
 "PATH:booth_007": {
 "generate/physics": true,
-"physics/layer": 9,
+"physics/layer": 40,
 "physics/shape_type": 0
 }
 }

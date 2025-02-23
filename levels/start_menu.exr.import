@@ -4,15 +4,16 @@ importer="2d_array_texture"
 type="CompressedTexture2DArray"
 uid="uid://u2yytj0k4apa"
 path.bptc="res://.godot/imported/start_menu.exr-94a3234acbaf792aee17276cac4d6a8d.bptc.ctexarray"
+path.astc="res://.godot/imported/start_menu.exr-94a3234acbaf792aee17276cac4d6a8d.astc.ctexarray"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://levels/start_menu.exr"
-dest_files=["res://.godot/imported/start_menu.exr-94a3234acbaf792aee17276cac4d6a8d.bptc.ctexarray"]
+dest_files=["res://.godot/imported/start_menu.exr-94a3234acbaf792aee17276cac4d6a8d.bptc.ctexarray", "res://.godot/imported/start_menu.exr-94a3234acbaf792aee17276cac4d6a8d.astc.ctexarray"]
 
 [params]
 

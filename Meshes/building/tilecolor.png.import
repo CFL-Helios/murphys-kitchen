@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://6j2ibmbgc3lu"
-path.s3tc="res://.godot/imported/tilecolor.png-87c09df4adfdd1b529e4d08d40f62b7b.s3tc.ctex"
+path.s3tc="res://.godot/imported/tilecolor.png-165a7d65b911ed5553a803db05fc9c4c.s3tc.ctex"
+path.etc2="res://.godot/imported/tilecolor.png-165a7d65b911ed5553a803db05fc9c4c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
-source_file="res://Meshes/building/tilecolor.png"
-dest_files=["res://.godot/imported/tilecolor.png-87c09df4adfdd1b529e4d08d40f62b7b.s3tc.ctex"]
+source_file="res://meshes/building/tilecolor.png"
+dest_files=["res://.godot/imported/tilecolor.png-165a7d65b911ed5553a803db05fc9c4c.s3tc.ctex", "res://.godot/imported/tilecolor.png-165a7d65b911ed5553a803db05fc9c4c.etc2.ctex"]
 
 [params]
 

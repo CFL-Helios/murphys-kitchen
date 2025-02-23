@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://drsrvl5d1x8ms"
-path.s3tc="res://.godot/imported/boothcush_BaseColor-boothcush_Alpha.png-5ef10f0fdd0c256786aa12cae034f973.s3tc.ctex"
+path.s3tc="res://.godot/imported/boothcush_BaseColor-boothcush_Alpha.png-d2bc341451fac7206afa5cdc54e55a2a.s3tc.ctex"
+path.etc2="res://.godot/imported/boothcush_BaseColor-boothcush_Alpha.png-d2bc341451fac7206afa5cdc54e55a2a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
-source_file="res://Meshes/boothexport/boothcush_BaseColor-boothcush_Alpha.png"
-dest_files=["res://.godot/imported/boothcush_BaseColor-boothcush_Alpha.png-5ef10f0fdd0c256786aa12cae034f973.s3tc.ctex"]
+source_file="res://meshes/boothexport/boothcush_BaseColor-boothcush_Alpha.png"
+dest_files=["res://.godot/imported/boothcush_BaseColor-boothcush_Alpha.png-d2bc341451fac7206afa5cdc54e55a2a.s3tc.ctex", "res://.godot/imported/boothcush_BaseColor-boothcush_Alpha.png-d2bc341451fac7206afa5cdc54e55a2a.etc2.ctex"]
 
 [params]
 

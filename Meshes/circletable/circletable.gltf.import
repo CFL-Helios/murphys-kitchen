@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://byfkef552fv6h"
-path="res://.godot/imported/circletable.gltf-e86b25e286f344e6bbb82609d9f2aa96.scn"
+path="res://.godot/imported/circletable.gltf-4782f2b772c087ad2c96463d3b44aa90.scn"
 
 [deps]
 
-source_file="res://Meshes/circletable/circletable.gltf"
-dest_files=["res://.godot/imported/circletable.gltf-e86b25e286f344e6bbb82609d9f2aa96.scn"]
+source_file="res://meshes/circletable/circletable.gltf"
+dest_files=["res://.godot/imported/circletable.gltf-4782f2b772c087ad2c96463d3b44aa90.scn"]
 
 [params]
 
