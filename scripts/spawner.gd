@@ -4,6 +4,10 @@ var customer_file = preload("res://entities/customer/customer.tscn")
 @export var tables : TableManager
 
 @onready var timer : Timer = $Timer
+@onready var reference_cust : MeshInstance3D = $CustomerMesh
+
+func _ready() -> void:
+	reference_cust.hide()
 
 func spawn():
 	if not tables.has_vacant(): return

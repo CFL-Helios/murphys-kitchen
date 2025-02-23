@@ -1,6 +1,6 @@
 class_name StartMenu extends CanvasLayer
 
-var main_scene : PackedScene = preload("res://levels/player_test.tscn")
+var main_scene : PackedScene = preload("res://levels/kitchen.tscn")
 
 func _on_start_pressed() -> void:
 	ScoreManager.score = 0

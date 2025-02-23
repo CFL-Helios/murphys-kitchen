@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d6oyod7i7t1t"
-path="res://.godot/imported/Sitting_01.fbx-6f317485f85ba50d0238dd1e0d56ab25.scn"
+path="res://.godot/imported/Sitting_01.fbx-626fc9ae011c3d113739480f76e1f2a6.scn"
 
 [deps]
 
-source_file="res://Meshes/animation/Sitting_01.fbx"
-dest_files=["res://.godot/imported/Sitting_01.fbx-6f317485f85ba50d0238dd1e0d56ab25.scn"]
+source_file="res://meshes/animation/Sitting_01.fbx"
+dest_files=["res://.godot/imported/Sitting_01.fbx-626fc9ae011c3d113739480f76e1f2a6.scn"]
 
 [params]
 

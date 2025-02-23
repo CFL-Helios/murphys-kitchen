@@ -1,32 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://bc160qkxdw1i2"]
+[gd_scene load_steps=3 format=3 uid="uid://bc160qkxdw1i2"]
 
 [ext_resource type="PackedScene" uid="uid://4s7ij0nr3tis" path="res://entities/seat/placement.tscn" id="1_3mmfg"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_xffdg"]
-height = 0.5
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_3mmfg"]
-height = 0.5
+[ext_resource type="PackedScene" uid="uid://sxxsntcuecdk" path="res://meshes/Chair/Chair.gltf" id="1_qss12"]
 
 [node name="Seat" type="Node3D"]
+
+[node name="Chair" parent="." instance=ExtResource("1_qss12")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84593, 0)
 
 [node name="Placement" parent="." node_paths=PackedStringArray("chair") instance=ExtResource("1_3mmfg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3831, 1.39169, 0)
 chair = NodePath("../Chair")
 
+[node name="InteractionMesh" parent="Placement" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.525724, 0, 0)
+
 [node name="InteractionCollider" parent="Placement" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.875842, 0, 0)
-
-[node name="Chair" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
-collision_layer = 8
-collision_mask = 15
-
-[node name="ChairMesh" type="MeshInstance3D" parent="Chair"]
-mesh = SubResource("CylinderMesh_xffdg")
-skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Chair"]
-shape = SubResource("CylinderShape3D_3mmfg")
 
 [editable path="Placement"]

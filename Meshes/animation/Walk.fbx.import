@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bjn0hp62wg7l5"
-path="res://.godot/imported/Walk.fbx-47964c30d6ef9f8a185c135fcb06aa61.scn"
+path="res://.godot/imported/Walk.fbx-39df79bcb9a964a49dcd82e74b4fc675.scn"
 
 [deps]
 
-source_file="res://Meshes/animation/Walk.fbx"
-dest_files=["res://.godot/imported/Walk.fbx-47964c30d6ef9f8a185c135fcb06aa61.scn"]
+source_file="res://meshes/animation/Walk.fbx"
+dest_files=["res://.godot/imported/Walk.fbx-39df79bcb9a964a49dcd82e74b4fc675.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bd85upk5suf4n"
-path="res://.godot/imported/building.gltf-c21c9130171789815747419a299ebfec.scn"
+path="res://.godot/imported/building.gltf-3c660234dd919b929b9da525f28c21ab.scn"
 
 [deps]
 
-source_file="res://Meshes/building/building.gltf"
-dest_files=["res://.godot/imported/building.gltf-c21c9130171789815747419a299ebfec.scn"]
+source_file="res://meshes/building/building.gltf"
+dest_files=["res://.godot/imported/building.gltf-3c660234dd919b929b9da525f28c21ab.scn"]
 
 [params]
 
@@ -71,22 +71,27 @@ _subresources={
 "physics/shape_type": 0
 },
 "PATH:wall_001": {
+"generate/occluder": 1,
 "generate/physics": true,
 "physics/shape_type": 0
 },
 "PATH:wall_002": {
+"generate/occluder": 1,
 "generate/physics": true,
 "physics/shape_type": 0
 },
 "PATH:wall_003": {
+"generate/occluder": 1,
 "generate/physics": true,
 "physics/shape_type": 0
 },
 "PATH:wall_door": {
+"generate/occluder": 1,
 "generate/physics": true,
 "physics/shape_type": 0
 },
 "PATH:wall_door_001": {
+"generate/occluder": 1,
 "generate/physics": true,
 "physics/shape_type": 2
 },

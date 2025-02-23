@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bcy77dgtmeh3"
-path="res://.godot/imported/Chef_with_Food.fbx-b53a8e3b803173e4242679d0719ee168.scn"
+path="res://.godot/imported/Chef_with_Food.fbx-e37f83683212db02c2745759e529ba3a.scn"
 
 [deps]
 
-source_file="res://Meshes/animation/Chef_with_Food.fbx"
-dest_files=["res://.godot/imported/Chef_with_Food.fbx-b53a8e3b803173e4242679d0719ee168.scn"]
+source_file="res://meshes/animation/Chef_with_Food.fbx"
+dest_files=["res://.godot/imported/Chef_with_Food.fbx-e37f83683212db02c2745759e529ba3a.scn"]
 
 [params]
 

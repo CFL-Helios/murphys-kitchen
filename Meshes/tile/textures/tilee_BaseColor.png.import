@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://uni1wx6ccir1"
-path.s3tc="res://.godot/imported/tilee_BaseColor.png-308694d4b16b7dec0a69820f319fbb47.s3tc.ctex"
+path.s3tc="res://.godot/imported/tilee_BaseColor.png-dd814deca16b51bec5b71c9656eed75c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Meshes/tile/textures/tilee_BaseColor.png"
-dest_files=["res://.godot/imported/tilee_BaseColor.png-308694d4b16b7dec0a69820f319fbb47.s3tc.ctex"]
+source_file="res://meshes/tile/textures/tilee_BaseColor.png"
+dest_files=["res://.godot/imported/tilee_BaseColor.png-dd814deca16b51bec5b71c9656eed75c.s3tc.ctex"]
 
 [params]
 

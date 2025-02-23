@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://nfteiabrq85i"
-path="res://.godot/imported/Getting_Hit.fbx-cf346ab33e30d26d0bad1a79f3551db2.scn"
+path="res://.godot/imported/Getting_Hit.fbx-e2ce3affcbb330d93f5ebb748086c0ad.scn"
 
 [deps]
 
-source_file="res://Meshes/animation/Getting_Hit.fbx"
-dest_files=["res://.godot/imported/Getting_Hit.fbx-cf346ab33e30d26d0bad1a79f3551db2.scn"]
+source_file="res://meshes/animation/Getting_Hit.fbx"
+dest_files=["res://.godot/imported/Getting_Hit.fbx-e2ce3affcbb330d93f5ebb748086c0ad.scn"]
 
 [params]
 

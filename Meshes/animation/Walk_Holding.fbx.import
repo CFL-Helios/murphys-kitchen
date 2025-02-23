@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bv1kt7n6jowka"
-path="res://.godot/imported/Walk_Holding.fbx-7d4b6ea500872d8497bd7840960d1a70.scn"
+path="res://.godot/imported/Walk_Holding.fbx-0cf52ad0e191b1fbb05838c330ebf713.scn"
 
 [deps]
 
-source_file="res://Meshes/animation/Walk_Holding.fbx"
-dest_files=["res://.godot/imported/Walk_Holding.fbx-7d4b6ea500872d8497bd7840960d1a70.scn"]
+source_file="res://meshes/animation/Walk_Holding.fbx"
+dest_files=["res://.godot/imported/Walk_Holding.fbx-0cf52ad0e191b1fbb05838c330ebf713.scn"]
 
 [params]
 

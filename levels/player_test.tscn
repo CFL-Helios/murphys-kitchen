@@ -48,7 +48,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1659, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.36292, 0, 0)
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("tables") instance=ExtResource("4_78qg3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.50975, 1.08902, 4.2071)
+transform = Transform3D(-0.995246, 0, -0.0973919, 0, 1, 0, 0.0973919, 0, -0.995246, 5.50975, -0.097481, 4.2071)
 tables = NodePath("../NavigationRegion3D/Tables")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
