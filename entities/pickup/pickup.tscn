@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dg30bh718u76n"]
+[gd_scene load_steps=8 format=3 uid="uid://dg30bh718u76n"]
 
 [ext_resource type="PackedScene" uid="uid://2aaoh2fber7h" path="res://entities/interaction/interaction_area.tscn" id="1_w2yne"]
 [ext_resource type="Script" uid="uid://bxg8e7nq58ti" path="res://scripts/pickup.gd" id="2_32udv"]
 [ext_resource type="PackedScene" uid="uid://ca3afvivsj2h0" path="res://entities/pickup/food.tscn" id="2_w7cft"]
+[ext_resource type="AudioStream" uid="uid://bnwujehc5iasr" path="res://sound/SFX_CashRegister_Ka_Ching.wav" id="4_d8ca8"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_w2yne"]
 height = 0.1
@@ -46,3 +47,9 @@ shape = SubResource("SphereShape3D_d8ca8")
 
 [node name="Food" parent="." instance=ExtResource("2_w7cft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.040515, 0)
+
+[node name="CashSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_d8ca8")
+max_polyphony = 5
+
+[connection signal="finished" from="CashSound" to="Plate/InteractionArea" method="_on_cash_sound_finished"]

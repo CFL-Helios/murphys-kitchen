@@ -22,6 +22,6 @@ func _on_timer_timeout() -> void:
 
 func _on_start_timer_timeout() -> void:
 	_on_timer_timeout()
-	var time = randf_range(10, 15)
+	var time = randf_range(20, 40)
 	timer.wait_time = time
 	timer.start()

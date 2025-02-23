@@ -50,9 +50,9 @@ func _input(event: InputEvent) -> void:
 	if holding_object: 
 		if active_placements.is_empty(): player.drop_pickup()
 		else: 
-			player.pickup.score()
 			closest_placement.place_pickup(player.pickup)
 			closest_placement.highlight(false)
+			player.pickup.active = false
 			player.place_pickup(closest_placement.global_position)
 		
 		holding_object = false
