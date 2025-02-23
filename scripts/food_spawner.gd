@@ -9,7 +9,7 @@ var pickup_packed : PackedScene = preload("res://entities/pickup/pickup.tscn")
 @onready var bell_sound : AudioStreamPlayer3D = $BellSound
 
 func _ready() -> void:
-	var start_time = randf_range(5, 20)
+	var start_time = randf_range(10, 30)
 	start_timer.wait_time = start_time
 	start_timer.start()
 	plate_mesh.hide()
