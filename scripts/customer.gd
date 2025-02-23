@@ -2,8 +2,11 @@ class_name Customer extends CharacterBody3D
 
 @onready var nav_agent : NavigationAgent3D = $NavAgent
 @onready var timer : Timer = $Timer
-@onready var flinch : Timer = $FlinchTimer
 @onready var animation : AnimationPlayer = $CustomerMesh/AnimationPlayer
+
+@onready var splat_sound : AudioStreamPlayer3D = $SplatPlayer
+@onready var eat_sound : AudioStreamPlayer3D = $EatingPlayer
+@onready var exit_sound : AudioStreamPlayer3D = $ExitSound
 
 @export var speed : float = 5
 
@@ -21,7 +24,8 @@ func _physics_process(delta: float) -> void:
 	
 	if not moving: 
 		look_at_table()
-		animation.play("waiting") 
+		if timer.is_stopped(): animation.play("waiting")
+		else: animation.play("eating") 
 		return
 	
 	var target_dir = (nav_agent.get_next_path_position() - global_position).normalized()
@@ -70,14 +74,18 @@ func _on_nav_agent_navigation_finished() -> void:
 	moving = false
 	animation.speed_scale = 1
 	if not eaten: sit()
-	else: queue_free()
+	else:
+		hide()
+		exit_sound.play()
 
 func eat() -> void:
 	animation.play("eating") 
 	seat.pickup_placed.disconnect(eat)
+	eat_sound.play()
 	timer.start()
 
 func _on_timer_timeout() -> void:
+	eat_sound.stop()
 	animation.play("getup")
 	seat.free_seat()
 	eaten = true
@@ -88,6 +96,11 @@ func splat() -> void:
 	flinching = true
 	animation.speed_scale = 1
 	animation.play("gethit_001")
+	splat_sound.play()
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "gethit_001": flinching = false
+
+
+func _on_exit_sound_finished() -> void:
+	queue_free()

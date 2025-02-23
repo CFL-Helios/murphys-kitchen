@@ -1,6 +1,15 @@
-[gd_scene load_steps=19 format=4 uid="uid://ckbg7b33b8b2"]
+[gd_scene load_steps=31 format=4 uid="uid://ckbg7b33b8b2"]
 
 [ext_resource type="Script" uid="uid://pufc8fyqh1xk" path="res://scripts/customer.gd" id="1_dhnu5"]
+[ext_resource type="AudioStream" uid="uid://bnwujehc5iasr" path="res://sound/SFX_CashRegister_Ka_Ching.wav" id="2_c8fq1"]
+[ext_resource type="AudioStream" uid="uid://by7h68rlm3pw" path="res://sound/SFX_Angry_Customer_1.wav" id="2_luk7a"]
+[ext_resource type="AudioStream" uid="uid://ocllph3xmq4l" path="res://sound/SFX_Door_Close.wav" id="2_rfjvo"]
+[ext_resource type="AudioStream" uid="uid://bia5k18mvlr2i" path="res://sound/SFX_Angry_Customer_2.wav" id="3_rfjvo"]
+[ext_resource type="AudioStream" uid="uid://ci2gcrtke2y0j" path="res://sound/SFX_Angry_Customer_3.wav" id="4_c8fq1"]
+[ext_resource type="AudioStream" uid="uid://bpisatrpx2mi8" path="res://sound/SFX_Angry_Customer_4.wav" id="5_dvhfj"]
+[ext_resource type="AudioStream" uid="uid://dj7t7han1ox8f" path="res://sound/SFX_Eat_Chewing.wav" id="6_1fl6y"]
+[ext_resource type="AudioStream" uid="uid://bomqu1v08yu4e" path="res://sound/SFX_Eat_Crunch_Single.wav" id="7_5jkiv"]
+[ext_resource type="AudioStream" uid="uid://bua12kdbfgke2" path="res://sound/SFX_Eat_Wet.wav" id="8_h4jgc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nvgxk"]
 resource_name = "model:Material.002"
@@ -3449,6 +3458,29 @@ _data = {
 radius = 0.25
 height = 1.5
 
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_dvhfj"]
+stream_count = 2
+stream_0/stream = ExtResource("2_c8fq1")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("2_rfjvo")
+stream_1/volume = 0.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nse3e"]
+random_pitch = 1.1
+random_volume_offset_db = 1.0
+streams_count = 4
+stream_0/stream = ExtResource("2_luk7a")
+stream_1/stream = ExtResource("3_rfjvo")
+stream_2/stream = ExtResource("4_c8fq1")
+stream_3/stream = ExtResource("5_dvhfj")
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_2mxht"]
+shuffle = true
+stream_count = 3
+stream_0 = ExtResource("6_1fl6y")
+stream_1 = ExtResource("7_5jkiv")
+stream_2 = ExtResource("8_h4jgc")
+
 [node name="Customer" type="CharacterBody3D"]
 collision_layer = 16
 collision_mask = 7
@@ -3639,6 +3671,16 @@ shape = SubResource("CapsuleShape3D_8ct44")
 wait_time = 5.0
 one_shot = true
 
+[node name="ExitSound" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamSynchronized_dvhfj")
+
+[node name="SplatPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_nse3e")
+
+[node name="EatingPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamPlaylist_2mxht")
+
 [connection signal="navigation_finished" from="NavAgent" to="." method="_on_nav_agent_navigation_finished"]
 [connection signal="animation_finished" from="CustomerMesh/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="ExitSound" to="." method="_on_exit_sound_finished"]

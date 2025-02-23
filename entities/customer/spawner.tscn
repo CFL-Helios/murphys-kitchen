@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://su346v1aikww"]
+[gd_scene load_steps=6 format=3 uid="uid://su346v1aikww"]
 
 [ext_resource type="Script" uid="uid://djcqmpl1o3gdr" path="res://scripts/spawner.gd" id="1_nqiyp"]
+[ext_resource type="AudioStream" uid="uid://s3pmucuh0a2l" path="res://sound/SFX_Door_Open.wav" id="2_aybii"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dhnu5"]
 albedo_color = Color(0.64, 0.1024, 0.1024, 1)
@@ -28,5 +29,8 @@ mesh = SubResource("CapsuleMesh_nqiyp")
 [node name="DirectionIndicator" type="MeshInstance3D" parent="CustomerMesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.496169)
 mesh = SubResource("BoxMesh_aybii")
+
+[node name="DoorOpener" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_aybii")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

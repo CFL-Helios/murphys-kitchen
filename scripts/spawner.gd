@@ -5,6 +5,7 @@ var customer_file = preload("res://entities/customer/customer.tscn")
 
 @onready var timer : Timer = $Timer
 @onready var reference_cust : MeshInstance3D = $CustomerMesh
+@onready var door_sound : AudioStreamPlayer3D = $DoorOpener
 
 func _ready() -> void:
 	reference_cust.hide()
@@ -15,6 +16,7 @@ func spawn():
 	add_child(customer)
 	customer.door = self
 	customer.update_seat(tables.get_vacant())
+	door_sound.play()
 
 func _on_timer_timeout() -> void:
 	spawn()

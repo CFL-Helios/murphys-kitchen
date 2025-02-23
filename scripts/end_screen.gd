@@ -2,7 +2,7 @@ class_name EndScreen extends CanvasLayer
 
 @onready var scoreboard : RichTextLabel = $ColorRect/PanelContainer/MarginContainer/VBoxContainer/Score
 
-var main_menu : PackedScene = preload("res://levels/kitchen.tscn")
+var main_menu : PackedScene = preload("res://levels/start_menu.tscn")
 
 func _ready() -> void:
 	hide()

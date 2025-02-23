@@ -1,6 +1,8 @@
 class_name FoodItem extends RigidBody3D
 
 @onready var splatter : Decal = $FoodSplatter
+@onready var splat_sound : AudioStreamPlayer3D = $"../SplatSound"
+
 var food_meshes : Array[MeshInstance3D]
 
 func _ready() -> void:
@@ -15,6 +17,7 @@ func get_meshes() -> Array[MeshInstance3D]:
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Food Safe"): return
 	elif body is Customer: body.splat()
+	splat_sound.play()
 	splatter.reparent(body)
 	splatter.show()
 	

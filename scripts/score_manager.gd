@@ -2,12 +2,16 @@ extends Node
 
 var score : int = 0
 signal score_changed(score : int)
+signal time_changed(time: float)
 
 var interaction_manager : InteractionManager
 
 func add_score(points : int):
 	score += points
 	score_changed.emit(score)
+
+func set_time(time: float):
+	time_changed.emit(time)
 
 func get_all_children(node : Node):
 	var nodes : Array = []

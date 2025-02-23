@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ca3afvivsj2h0"]
+[gd_scene load_steps=24 format=3 uid="uid://ca3afvivsj2h0"]
 
 [ext_resource type="Script" uid="uid://ddjbf7w1qm66p" path="res://scripts/food.gd" id="1_xeaex"]
 [ext_resource type="Script" uid="uid://cbik34dno3xba" path="res://scripts/food_item.gd" id="2_0wmj2"]
@@ -8,12 +8,14 @@
 [ext_resource type="ArrayMesh" uid="uid://bfjn5043jry8v" path="res://meshes/Burger/meshes/burger_Circle_001.res" id="6_j3hqa"]
 [ext_resource type="Texture2D" uid="uid://dcbwsn8da6uj0" path="res://meshes/splat/Greensplat.png" id="6_wn08j"]
 [ext_resource type="ArrayMesh" uid="uid://dwnmpsvd0wk27" path="res://meshes/Burger/meshes/lettuce_2.res" id="7_e0wc5"]
-[ext_resource type="ArrayMesh" uid="uid://ck2jwnk8swg8u" path="res://meshes/Burger/meshes/patty.res" id="8_e0wc5"]
 [ext_resource type="Texture2D" uid="uid://dgq6wia87v3gb" path="res://meshes/splat/SplatBrown.png" id="9_x837j"]
 [ext_resource type="ArrayMesh" uid="uid://bemupiqdqmlvm" path="res://meshes/Burger/meshes/cheese.res" id="11_01ik4"]
 [ext_resource type="Texture2D" uid="uid://ccjikhuathqur" path="res://meshes/splat/splatred.png" id="12_2u10m"]
 [ext_resource type="ArrayMesh" uid="uid://ck2jwnk8swg8u" path="res://meshes/Burger/meshes/tomato.res" id="13_3fjwo"]
+[ext_resource type="AudioStream" uid="uid://wy88c26humbw" path="res://sound/SFX_Food_Splat_Wet.wav" id="14_01ik4"]
 [ext_resource type="ArrayMesh" uid="uid://bo26vq80l0e7k" path="res://meshes/Burger/meshes/top_bun.res" id="14_6pqnx"]
+[ext_resource type="AudioStream" uid="uid://do224ujetkbhu" path="res://sound/SFX_Food_Splat_Wet_2.wav" id="15_2u10m"]
+[ext_resource type="AudioStream" uid="uid://b5sutf8smfyyx" path="res://sound/SFX_Food_Splat_Wet_3.wav" id="16_3fjwo"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0wmj2"]
 friction = 10.0
@@ -38,6 +40,14 @@ radius = 0.11
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_8upjy"]
 height = 0.0764404
 radius = 0.11
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6pqnx"]
+random_pitch = 1.1
+random_volume_offset_db = 1.0
+streams_count = 3
+stream_0/stream = ExtResource("14_01ik4")
+stream_1/stream = ExtResource("15_2u10m")
+stream_2/stream = ExtResource("16_3fjwo")
 
 [node name="Food" type="Node3D" groups=["Food Safe"]]
 script = ExtResource("1_xeaex")
@@ -139,7 +149,7 @@ texture_albedo = ExtResource("9_x837j")
 
 [node name="FoodMesh" type="MeshInstance3D" parent="Patty"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0472358, 0)
-mesh = ExtResource("8_e0wc5")
+mesh = ExtResource("13_3fjwo")
 
 [node name="Cheese" type="RigidBody3D" parent="." groups=["Food Safe"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.102366, 0)
@@ -215,6 +225,9 @@ texture_albedo = ExtResource("4_itctl")
 [node name="FoodMesh" type="MeshInstance3D" parent="Top_Bun"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.112408, 0)
 mesh = ExtResource("14_6pqnx")
+
+[node name="SplatSound" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_6pqnx")
 
 [connection signal="body_entered" from="BottomBun" to="BottomBun" method="_on_body_entered"]
 [connection signal="body_entered" from="Lettuce" to="Lettuce" method="_on_body_entered"]

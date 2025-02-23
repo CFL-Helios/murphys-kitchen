@@ -1,11 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvn61fdcos73l"]
+[gd_scene load_steps=8 format=3 uid="uid://dvn61fdcos73l"]
 
 [ext_resource type="Script" uid="uid://m4bkeklkufta" path="res://scripts/food_spawner.gd" id="1_fjykg"]
+[ext_resource type="AudioStream" uid="uid://cjf0enrcqadsc" path="res://sound/SFX_VOX_Chef_1.wav" id="2_uea5a"]
+[ext_resource type="AudioStream" uid="uid://dpnvalognwupy" path="res://sound/SFX_VOX_Chef_2.wav" id="3_tnqc1"]
+[ext_resource type="AudioStream" uid="uid://d0rdfy113nlke" path="res://sound/SFX_VOX_Chef_3.wav" id="4_jfr0m"]
+[ext_resource type="AudioStream" uid="uid://pf0yjao65v7t" path="res://sound/SFX_Bell_NewOrder.wav" id="5_snky2"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_fjykg"]
 top_radius = 0.2
 bottom_radius = 0.15
 height = 0.1
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_r63vi"]
+random_pitch = 1.1
+random_volume_offset_db = 1.0
+streams_count = 3
+stream_0/stream = ExtResource("2_uea5a")
+stream_1/stream = ExtResource("3_tnqc1")
+stream_2/stream = ExtResource("4_jfr0m")
 
 [node name="FoodSpawner" type="Node3D"]
 script = ExtResource("1_fjykg")
@@ -17,7 +29,15 @@ skeleton = NodePath("../Timer")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
+
+[node name="StartTimer" type="Timer" parent="."]
 one_shot = true
-autostart = true
+
+[node name="ChefSound" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_r63vi")
+
+[node name="BellSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_snky2")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
