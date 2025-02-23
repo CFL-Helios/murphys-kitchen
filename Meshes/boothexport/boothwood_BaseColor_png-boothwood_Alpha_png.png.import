@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bykig0yi2x3ig"
-path.s3tc="res://.godot/imported/boothwood_BaseColor_png-boothwood_Alpha_png.png-a6a7f164e33430f5a5216a9f7c3ec945.s3tc.ctex"
+path.s3tc="res://.godot/imported/boothwood_BaseColor_png-boothwood_Alpha_png.png-f87d7cf0cb44ff986ed19067269f76b3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://meshes/boothexport/boothwood_BaseColor_png-boothwood_Alpha_png.png"
-dest_files=["res://.godot/imported/boothwood_BaseColor_png-boothwood_Alpha_png.png-a6a7f164e33430f5a5216a9f7c3ec945.s3tc.ctex"]
+source_file="res://Meshes/boothexport/boothwood_BaseColor_png-boothwood_Alpha_png.png"
+dest_files=["res://.godot/imported/boothwood_BaseColor_png-boothwood_Alpha_png.png-f87d7cf0cb44ff986ed19067269f76b3.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b46lradavilrt"
-path.s3tc="res://.godot/imported/BurgerBunbottom.jpg-4c56749694dae729527fe1ff7e3bbd24.s3tc.ctex"
+path.s3tc="res://.godot/imported/BurgerBunbottom.jpg-3a6ca04d74b0ad9b43e9c2e82f91e81d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://meshes/Burger/BurgerBunbottom.jpg"
-dest_files=["res://.godot/imported/BurgerBunbottom.jpg-4c56749694dae729527fe1ff7e3bbd24.s3tc.ctex"]
+source_file="res://Meshes/Burger/BurgerBunbottom.jpg"
+dest_files=["res://.godot/imported/BurgerBunbottom.jpg-3a6ca04d74b0ad9b43e9c2e82f91e81d.s3tc.ctex"]
 
 [params]
 

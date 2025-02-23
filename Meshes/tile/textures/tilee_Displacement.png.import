@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctnnqb4d7vnt8"
-path="res://.godot/imported/tilee_Displacement.png-2205b0c3bb44fae85f9d2ca2d4e7faa1.ctex"
+path="res://.godot/imported/tilee_Displacement.png-58f456e99a2db91f781b1778261870ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://meshes/tile/textures/tilee_Displacement.png"
-dest_files=["res://.godot/imported/tilee_Displacement.png-2205b0c3bb44fae85f9d2ca2d4e7faa1.ctex"]
+source_file="res://Meshes/tile/textures/tilee_Displacement.png"
+dest_files=["res://.godot/imported/tilee_Displacement.png-58f456e99a2db91f781b1778261870ea.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://o8tyycc1nn6i"
-path="res://.godot/imported/tilee_Emission.png-194fb0f0c10ed7b57716aec2ecb134f8.ctex"
+path="res://.godot/imported/tilee_Emission.png-1037e01a04762e1e8c37db4dd7de72ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://meshes/tile/textures/tilee_Emission.png"
-dest_files=["res://.godot/imported/tilee_Emission.png-194fb0f0c10ed7b57716aec2ecb134f8.ctex"]
+source_file="res://Meshes/tile/textures/tilee_Emission.png"
+dest_files=["res://.godot/imported/tilee_Emission.png-1037e01a04762e1e8c37db4dd7de72ce.ctex"]
 
 [params]
 

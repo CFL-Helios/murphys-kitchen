@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmdo0u4hy4okb"
-path.s3tc="res://.godot/imported/lettuce2.jpg-053a0279c645d78d6c455778c70dd467.s3tc.ctex"
+path.s3tc="res://.godot/imported/lettuce2.jpg-c4a80f31482ccbf9105d9f5005487225.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://meshes/Burger/lettuce2.jpg"
-dest_files=["res://.godot/imported/lettuce2.jpg-053a0279c645d78d6c455778c70dd467.s3tc.ctex"]
+source_file="res://Meshes/Burger/lettuce2.jpg"
+dest_files=["res://.godot/imported/lettuce2.jpg-c4a80f31482ccbf9105d9f5005487225.s3tc.ctex"]
 
 [params]
 
