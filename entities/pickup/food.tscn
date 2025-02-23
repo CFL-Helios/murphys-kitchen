@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ca3afvivsj2h0"]
+[gd_scene load_steps=25 format=3 uid="uid://ca3afvivsj2h0"]
 
 [ext_resource type="Script" uid="uid://ddjbf7w1qm66p" path="res://scripts/food.gd" id="1_xeaex"]
 [ext_resource type="Script" uid="uid://cbik34dno3xba" path="res://scripts/food_item.gd" id="2_0wmj2"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dcbwsn8da6uj0" path="res://meshes/splat/Greensplat.png" id="6_wn08j"]
 [ext_resource type="ArrayMesh" uid="uid://dwnmpsvd0wk27" path="res://meshes/Burger/meshes/lettuce_2.res" id="7_e0wc5"]
 [ext_resource type="Texture2D" uid="uid://dgq6wia87v3gb" path="res://meshes/splat/SplatBrown.png" id="9_x837j"]
+[ext_resource type="ArrayMesh" uid="uid://ck2jwnk8swg8u" path="res://meshes/Burger/meshes/patty.res" id="10_2u10m"]
 [ext_resource type="ArrayMesh" uid="uid://bemupiqdqmlvm" path="res://meshes/Burger/meshes/cheese.res" id="11_01ik4"]
 [ext_resource type="Texture2D" uid="uid://ccjikhuathqur" path="res://meshes/splat/splatred.png" id="12_2u10m"]
 [ext_resource type="ArrayMesh" uid="uid://ck2jwnk8swg8u" path="res://meshes/Burger/meshes/tomato.res" id="13_3fjwo"]
@@ -149,7 +150,7 @@ texture_albedo = ExtResource("9_x837j")
 
 [node name="FoodMesh" type="MeshInstance3D" parent="Patty"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0472358, 0)
-mesh = ExtResource("13_3fjwo")
+mesh = ExtResource("10_2u10m")
 
 [node name="Cheese" type="RigidBody3D" parent="." groups=["Food Safe"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.102366, 0)

@@ -8,14 +8,14 @@ extends Node3D
 
 @onready var game_timer : Timer = $Timer
 
-var main_menu : PackedScene = preload("res://levels/start_menu.tscn")
 
 func _process(_delta: float) -> void:
 	ScoreManager.set_time(game_timer.time_left)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action(input_exit):
-		get_tree().change_scene_to_packed(main_menu)
+		_on_timer_timeout()
+
 
 func _on_timer_timeout() -> void:
 	get_tree().paused = true
