@@ -2,6 +2,7 @@ class_name Customer extends CharacterBody3D
 
 @onready var nav_agent : NavigationAgent3D = $NavAgent
 @onready var timer : Timer = $Timer
+@onready var animation : AnimationPlayer = $CustomerMesh/AnimationPlayer
 
 @export var speed : float = 5
 
@@ -13,6 +14,7 @@ var moving : bool = true
 func _physics_process(delta: float) -> void:
 	if not moving: 
 		look_at_table()
+		animation.play("waiting") 
 		return
 	
 	var target_dir = (nav_agent.get_next_path_position() - global_position).normalized()
@@ -24,6 +26,14 @@ func _physics_process(delta: float) -> void:
 		move_dir *= speed
 		velocity.x = move_toward(velocity.x, move_dir.x, 10)
 		velocity.z = move_toward(velocity.z, move_dir.z, 10)
+		
+	var move_speed = move_dir.length()
+	if move_speed < 0.5: 
+		animation.speed_scale = 1
+		animation.play("idle")
+	else:
+		animation.speed_scale = move_speed / 2
+		animation.play("walk")
 	
 	var look_at_target = Vector3(global_position.x + velocity.x, global_position.y, global_position.z + velocity.z)
 	if not look_at_target.is_equal_approx(global_position): look_at(look_at_target, up_direction, true)
@@ -39,7 +49,9 @@ func update_target_pos(target_pos: Vector3) -> void:
 
 func sit() -> void:
 	if seat.pickup: eat()
-	else: seat.pickup_placed.connect(eat)
+	else:
+		animation.play("waiting") 
+		seat.pickup_placed.connect(eat)
 
 func look_at_table() -> void:
 	var look_at_target = seat.place_mesh.global_position
@@ -48,10 +60,12 @@ func look_at_table() -> void:
 
 func _on_nav_agent_navigation_finished() -> void:
 	moving = false
+	animation.speed_scale = 1
 	if not eaten: sit()
 	else: queue_free()
 
 func eat() -> void:
+	animation.play("eating") 
 	seat.pickup_placed.disconnect(eat)
 	timer.start()
 

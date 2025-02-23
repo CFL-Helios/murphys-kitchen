@@ -40,6 +40,7 @@ var pickup : Pickup
 @onready var collider: CollisionShape3D = $PlayerCollider
 @onready var pickup_socket: Marker3D = $PickupSocket
 @onready var drop_socket : Marker3D = $DropSocket
+@onready var animation_player : AnimationPlayer = $PlayerMesh/AnimationPlayer
 
 func _ready() -> void:
 	check_input_mappings()
@@ -68,11 +69,22 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 		velocity.z = 0
 	
+	
 	# Use velocity to actually move
 	move_and_slide()
 	
 	if pickup: 
-		pickup.dish.linear_velocity = velocity
+		pickup.dish.linear_velocity = (pickup_socket.global_position - pickup.dish.global_position) * 100
+	
+	var move_speed = Vector3(velocity.x, 0, velocity.z).length()
+	if move_speed < 0.5:
+		animation_player.speed_scale = 1
+		if pickup: animation_player.play("carryplates")
+		else: animation_player.play("idle")
+	else:
+		animation_player.speed_scale = move_speed / 2
+		if pickup: animation_player.play("carryplate")
+		else: animation_player.play("walk")
 
 	
 func calculate_velocity():
@@ -103,7 +115,7 @@ func take_pickup(new_pickup: Pickup):
 	var pos_diff = pickup_socket.global_position - pickup.dish.global_position 
 	pickup.dish.global_position += pos_diff
 	pickup.food.global_position += pos_diff 
-
+	
 func drop_pickup():
 	place_pickup(drop_socket.global_position)
 	
