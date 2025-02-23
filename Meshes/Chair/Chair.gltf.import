@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://byfkef552fv6h"
-path="res://.godot/imported/circletable.gltf-e86b25e286f344e6bbb82609d9f2aa96.scn"
+uid="uid://sxxsntcuecdk"
+path="res://.godot/imported/Chair.gltf-f745aedad946f7870d4b6540dc14f768.scn"
 
 [deps]
 
-source_file="res://Meshes/circletable/circletable.gltf"
-dest_files=["res://.godot/imported/circletable.gltf-e86b25e286f344e6bbb82609d9f2aa96.scn"]
+source_file="res://Meshes/Chair/Chair.gltf"
+dest_files=["res://.godot/imported/Chair.gltf-f745aedad946f7870d4b6540dc14f768.scn"]
 
 [params]
 
@@ -34,8 +34,9 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Plane_001": {
+"PATH:Chair": {
 "generate/physics": true,
+"physics/body_type": 1,
 "physics/layer": 8,
 "physics/shape_type": 0
 }
