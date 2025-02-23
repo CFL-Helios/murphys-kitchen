@@ -40,6 +40,7 @@ fog_light_color = Color(0.619608, 0.788235, 0.901961, 1)
 fog_light_energy = 0.1
 fog_sky_affect = 0.0
 adjustment_enabled = true
+adjustment_contrast = 1.1
 adjustment_saturation = 1.25
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_48ea6"]
