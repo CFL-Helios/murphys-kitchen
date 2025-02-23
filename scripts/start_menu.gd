@@ -1,4 +1,4 @@
-extends Control
+class_name StartMenu extends CanvasLayer
 
 var main_scene : PackedScene = preload("res://levels/player_test.tscn")
 
