@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b3xqfjcxhfg4w"]
+
+[resource]
+resource_name = "tomato"
+cull_mode = 2
+albedo_color = Color(0.952941, 0.364706, 0.34902, 1)
+roughness = 0.445455

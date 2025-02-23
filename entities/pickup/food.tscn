@@ -1,33 +1,49 @@
-[gd_scene load_steps=9 format=3 uid="uid://ca3afvivsj2h0"]
+[gd_scene load_steps=21 format=3 uid="uid://ca3afvivsj2h0"]
 
 [ext_resource type="Script" uid="uid://ddjbf7w1qm66p" path="res://scripts/food.gd" id="1_xeaex"]
 [ext_resource type="Script" uid="uid://cbik34dno3xba" path="res://scripts/food_item.gd" id="2_0wmj2"]
 [ext_resource type="Material" uid="uid://2r1338dig1wi" path="res://entities/pickup/highlight_material.tres" id="2_tq67v"]
+[ext_resource type="Texture2D" uid="uid://cut5q84q8a0gr" path="res://meshes/splat/.png" id="4_itctl"]
+[ext_resource type="ArrayMesh" uid="uid://bssw6mmphsywg" path="res://meshes/Burger/meshes/bottom_bun.res" id="4_tq67v"]
+[ext_resource type="ArrayMesh" uid="uid://bfjn5043jry8v" path="res://Meshes/Burger/meshes/burger_Circle_001.res" id="6_j3hqa"]
+[ext_resource type="Texture2D" uid="uid://dcbwsn8da6uj0" path="res://meshes/splat/Greensplat.png" id="6_wn08j"]
+[ext_resource type="ArrayMesh" uid="uid://dwnmpsvd0wk27" path="res://meshes/Burger/meshes/lettuce_2.res" id="7_e0wc5"]
+[ext_resource type="ArrayMesh" uid="uid://dp28vixm0qt4l" path="res://meshes/Burger/meshes/patty.res" id="8_e0wc5"]
+[ext_resource type="Texture2D" uid="uid://dgq6wia87v3gb" path="res://meshes/splat/SplatBrown.png" id="9_x837j"]
+[ext_resource type="ArrayMesh" uid="uid://bemupiqdqmlvm" path="res://meshes/Burger/meshes/cheese.res" id="11_01ik4"]
+[ext_resource type="Texture2D" uid="uid://ccjikhuathqur" path="res://meshes/splat/splatred.png" id="12_2u10m"]
+[ext_resource type="ArrayMesh" uid="uid://ck2jwnk8swg8u" path="res://meshes/Burger/meshes/tomato.res" id="13_3fjwo"]
+[ext_resource type="ArrayMesh" uid="uid://bo26vq80l0e7k" path="res://meshes/Burger/meshes/top_bun.res" id="14_6pqnx"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0wmj2"]
 friction = 10.0
 rough = true
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_j7wlg"]
+height = 0.0244141
+radius = 0.11
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_itctl"]
-height = 0.1
-radius = 0.1
+height = 0.0157715
+radius = 0.11
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n3y6a"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_im02d"]
+height = 0.0302734
+radius = 0.11
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0wmj2"]
-albedo_color = Color(0.75, 0.55, 0, 1)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_e0wc5"]
+height = 0.0107422
+radius = 0.11
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_0wmj2"]
-material = SubResource("StandardMaterial3D_0wmj2")
-top_radius = 0.1
-bottom_radius = 0.1
-height = 0.1
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8upjy"]
+height = 0.0764404
+radius = 0.11
 
 [node name="Food" type="Node3D" groups=["Food Safe"]]
 script = ExtResource("1_xeaex")
 highlight_mat = ExtResource("2_tq67v")
 
-[node name="FoodItem" type="RigidBody3D" parent="." groups=["Food Safe"]]
+[node name="BottomBun" type="RigidBody3D" parent="." groups=["Food Safe"]]
 collision_layer = 4
 collision_mask = 31
 physics_material_override = SubResource("PhysicsMaterial_0wmj2")
@@ -37,17 +53,173 @@ contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("2_0wmj2")
 
-[node name="FoodCollision" type="CollisionShape3D" parent="FoodItem"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
-shape = SubResource("CylinderShape3D_itctl")
+[node name="FoodCollision" type="CollisionShape3D" parent="BottomBun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0156135, 0)
+shape = SubResource("CylinderShape3D_j7wlg")
 
-[node name="FoodSplatter" type="Decal" parent="FoodItem"]
+[node name="FoodSplatter" type="Decal" parent="BottomBun"]
 visible = false
 size = Vector3(0.5, 0.5, 0.5)
-texture_albedo = SubResource("PlaceholderTexture2D_n3y6a")
+texture_albedo = ExtResource("4_itctl")
 
-[node name="FoodMesh" type="MeshInstance3D" parent="FoodItem"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
-mesh = SubResource("CylinderMesh_0wmj2")
+[node name="FoodMesh" type="MeshInstance3D" parent="BottomBun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000936951, 0)
+mesh = ExtResource("4_tq67v")
 
-[connection signal="body_entered" from="FoodItem" to="FoodItem" method="_on_body_entered"]
+[node name="Lettuce" type="RigidBody3D" parent="." groups=["Food Safe"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.033911, 0)
+collision_layer = 4
+collision_mask = 31
+physics_material_override = SubResource("PhysicsMaterial_0wmj2")
+freeze_mode = 1
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("2_0wmj2")
+
+[node name="FoodCollision" type="CollisionShape3D" parent="Lettuce"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00203387, 0)
+shape = SubResource("CylinderShape3D_itctl")
+
+[node name="FoodSplatter" type="Decal" parent="Lettuce"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00285235, 0)
+visible = false
+size = Vector3(0.5, 0.5, 0.5)
+texture_albedo = ExtResource("6_wn08j")
+
+[node name="FoodMesh" type="MeshInstance3D" parent="Lettuce"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0272694, 0)
+mesh = ExtResource("6_j3hqa")
+
+[node name="Lettuce2" type="RigidBody3D" parent="." groups=["Food Safe"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0538773, 0)
+collision_layer = 4
+collision_mask = 31
+physics_material_override = SubResource("PhysicsMaterial_0wmj2")
+freeze_mode = 1
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("2_0wmj2")
+
+[node name="FoodCollision" type="CollisionShape3D" parent="Lettuce2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00203387, 0)
+shape = SubResource("CylinderShape3D_itctl")
+
+[node name="FoodSplatter" type="Decal" parent="Lettuce2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00285235, 0)
+visible = false
+size = Vector3(0.5, 0.5, 0.5)
+texture_albedo = ExtResource("6_wn08j")
+
+[node name="FoodMesh" type="MeshInstance3D" parent="Lettuce2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0272694, 0)
+mesh = ExtResource("7_e0wc5")
+
+[node name="Patty" type="RigidBody3D" parent="." groups=["Food Safe"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0798647, 0)
+collision_layer = 4
+collision_mask = 31
+physics_material_override = SubResource("PhysicsMaterial_0wmj2")
+freeze_mode = 1
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("2_0wmj2")
+
+[node name="FoodCollision" type="CollisionShape3D" parent="Patty"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00203387, 0)
+shape = SubResource("CylinderShape3D_im02d")
+
+[node name="FoodSplatter" type="Decal" parent="Patty"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00285235, 0)
+visible = false
+size = Vector3(0.5, 0.5, 0.5)
+texture_albedo = ExtResource("9_x837j")
+
+[node name="FoodMesh" type="MeshInstance3D" parent="Patty"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0472358, 0)
+mesh = ExtResource("8_e0wc5")
+
+[node name="Cheese" type="RigidBody3D" parent="." groups=["Food Safe"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.102366, 0)
+collision_layer = 4
+collision_mask = 31
+physics_material_override = SubResource("PhysicsMaterial_0wmj2")
+freeze_mode = 1
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("2_0wmj2")
+
+[node name="FoodCollision" type="CollisionShape3D" parent="Cheese"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00203387, 0)
+shape = SubResource("CylinderShape3D_e0wc5")
+
+[node name="FoodSplatter" type="Decal" parent="Cheese"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00285235, 0)
+visible = false
+size = Vector3(0.5, 0.5, 0.5)
+texture_albedo = ExtResource("4_itctl")
+
+[node name="FoodMesh" type="MeshInstance3D" parent="Cheese"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0630821, 0)
+mesh = ExtResource("11_01ik4")
+
+[node name="Tomato" type="RigidBody3D" parent="." groups=["Food Safe"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.120431, 0)
+collision_layer = 4
+collision_mask = 31
+physics_material_override = SubResource("PhysicsMaterial_0wmj2")
+freeze_mode = 1
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("2_0wmj2")
+
+[node name="FoodCollision" type="CollisionShape3D" parent="Tomato"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00145232, 0)
+shape = SubResource("CylinderShape3D_e0wc5")
+
+[node name="FoodSplatter" type="Decal" parent="Tomato"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00285235, 0)
+visible = false
+size = Vector3(0.5, 0.5, 0.5)
+texture_albedo = ExtResource("12_2u10m")
+
+[node name="FoodMesh" type="MeshInstance3D" parent="Tomato"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0732237, 0)
+mesh = ExtResource("13_3fjwo")
+
+[node name="Top_Bun" type="RigidBody3D" parent="." groups=["Food Safe"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.166639, 0)
+collision_layer = 4
+collision_mask = 31
+physics_material_override = SubResource("PhysicsMaterial_0wmj2")
+freeze_mode = 1
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("2_0wmj2")
+
+[node name="FoodCollision" type="CollisionShape3D" parent="Top_Bun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0057376, 0)
+shape = SubResource("CylinderShape3D_8upjy")
+
+[node name="FoodSplatter" type="Decal" parent="Top_Bun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00285235, 0)
+visible = false
+size = Vector3(0.5, 0.5, 0.5)
+texture_albedo = ExtResource("4_itctl")
+
+[node name="FoodMesh" type="MeshInstance3D" parent="Top_Bun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.112408, 0)
+mesh = ExtResource("14_6pqnx")
+
+[connection signal="body_entered" from="BottomBun" to="BottomBun" method="_on_body_entered"]
+[connection signal="body_entered" from="Lettuce" to="Lettuce" method="_on_body_entered"]
+[connection signal="body_entered" from="Lettuce2" to="Lettuce2" method="_on_body_entered"]
+[connection signal="body_entered" from="Patty" to="Patty" method="_on_body_entered"]
+[connection signal="body_entered" from="Cheese" to="Cheese" method="_on_body_entered"]
+[connection signal="body_entered" from="Tomato" to="Tomato" method="_on_body_entered"]
+[connection signal="body_entered" from="Top_Bun" to="Top_Bun" method="_on_body_entered"]

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cp2clk7fd2ta"]
+
+[ext_resource type="Texture2D" uid="uid://b46lradavilrt" path="res://meshes/Burger/textures/BurgerBunbottom.jpg" id="1_q0rvt"]
+
+[resource]
+resource_name = "bunbottom"
+cull_mode = 2
+albedo_texture = ExtResource("1_q0rvt")
+roughness = 0.340909
+normal_enabled = true
