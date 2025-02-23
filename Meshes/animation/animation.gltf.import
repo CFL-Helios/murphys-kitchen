@@ -3,20 +3,20 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bdiqsqvwtb84q"
-path="res://.godot/imported/Standing_Up.fbx-b792249bfff15efbe22de4209cb9fb18.scn"
+uid="uid://b6odp0bcgbuqg"
+path="res://.godot/imported/animation.gltf-f62a7f9a42c0813e40c888ef12df1d0d.scn"
 
 [deps]
 
-source_file="res://Meshes/animation/Standing_Up.fbx"
-dest_files=["res://.godot/imported/Standing_Up.fbx-b792249bfff15efbe22de4209cb9fb18.scn"]
+source_file="res://Meshes/animation/animation.gltf"
+dest_files=["res://.godot/imported/animation.gltf-f62a7f9a42c0813e40c888ef12df1d0d.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
-nodes/root_scale=0.27
+nodes/root_scale=0.47
 nodes/import_as_skeleton_bones=false
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
@@ -28,11 +28,10 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
+gltf/naming_version=1
+gltf/embedded_image_handling=1
