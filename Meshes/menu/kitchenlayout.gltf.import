@@ -4,19 +4,19 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b3v8ehn4t1kv1"
-path="res://.godot/imported/kitchenlayout.gltf-436065b4b1353ad814663effeb26db74.scn"
+path="res://.godot/imported/kitchenlayout.gltf-cd6c940b8b6876b239113b0e1b514949.scn"
 
 [deps]
 
-source_file="res://Meshes/menu/kitchenlayout.gltf"
-dest_files=["res://.godot/imported/kitchenlayout.gltf-436065b4b1353ad814663effeb26db74.scn"]
+source_file="res://meshes/menu/kitchenlayout.gltf"
+dest_files=["res://.godot/imported/kitchenlayout.gltf-cd6c940b8b6876b239113b0e1b514949.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
-nodes/root_scale=1.0
+nodes/root_scale=0.1
 nodes/import_as_skeleton_bones=false
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
@@ -32,6 +32,16 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:Plane": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/layer": 4,
+"physics/mask": 31,
+"physics/shape_type": 0
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dphqs7c8y2k2g"
-path="res://.godot/imported/tablemenuuu.gltf-fb443798cac3f70b58053e0a0b24699e.scn"
+path="res://.godot/imported/tablemenuuu.gltf-294490b41402901271061d5199349794.scn"
 
 [deps]
 
-source_file="res://Meshes/tablemenu/tablemenuuu.gltf"
-dest_files=["res://.godot/imported/tablemenuuu.gltf-fb443798cac3f70b58053e0a0b24699e.scn"]
+source_file="res://meshes/tablemenu/tablemenuuu.gltf"
+dest_files=["res://.godot/imported/tablemenuuu.gltf-294490b41402901271061d5199349794.scn"]
 
 [params]
 
@@ -38,7 +38,8 @@ _subresources={
 "generate/physics": true,
 "physics/body_type": 1,
 "physics/layer": 4,
-"physics/mask": 15
+"physics/mask": 31,
+"physics/shape_type": 0
 }
 }
 }
