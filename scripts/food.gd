@@ -23,3 +23,10 @@ func get_score() -> int:
 	for item in food_items:
 		if item: score += 1
 	return score
+
+func push(force : Vector3):
+	for item in food_items:
+		if item:
+			print(item.name)
+			print(force)
+			item.apply_force(force)

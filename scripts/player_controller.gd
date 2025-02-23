@@ -72,9 +72,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if pickup: 
-		var move_v = velocity * delta
-		move_v.y = 0
-		pickup.dish.global_position += move_v
+		pickup.dish.linear_velocity = velocity
+
 	
 func calculate_velocity():
 	var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)

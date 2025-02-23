@@ -22,8 +22,6 @@ metadata/_edit_group_ = true
 [node name="Plate" type="RigidBody3D" parent="." groups=["Food Safe"]]
 collision_layer = 4
 collision_mask = 15
-axis_lock_linear_x = true
-axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 lock_rotation = true
