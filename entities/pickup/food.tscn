@@ -26,7 +26,6 @@ highlight_mat = ExtResource("2_tq67v")
 [node name="FoodItem" type="RigidBody3D" parent="." groups=["Food Safe"]]
 collision_layer = 4
 collision_mask = 31
-mass = 2.0
 freeze_mode = 1
 continuous_cd = true
 contact_monitor = true
