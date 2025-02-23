@@ -14,7 +14,7 @@ func get_meshes() -> Array[MeshInstance3D]:
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Food Safe"): return
-	
+	elif body is Customer: body.splat()
 	splatter.reparent(body)
 	splatter.show()
 	

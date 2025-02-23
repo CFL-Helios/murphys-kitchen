@@ -2,6 +2,7 @@ class_name Customer extends CharacterBody3D
 
 @onready var nav_agent : NavigationAgent3D = $NavAgent
 @onready var timer : Timer = $Timer
+@onready var flinch : Timer = $FlinchTimer
 @onready var animation : AnimationPlayer = $CustomerMesh/AnimationPlayer
 
 @export var speed : float = 5
@@ -10,8 +11,14 @@ var door : Node3D
 var seat : Placement
 var eaten : bool = false
 var moving : bool = true
+var flinching : bool = false
+
 
 func _physics_process(delta: float) -> void:
+	if flinching: 
+		animation.play("gethit_001")
+		return
+	
 	if not moving: 
 		look_at_table()
 		animation.play("waiting") 
@@ -47,6 +54,7 @@ func update_seat(placement : Placement) -> void:
 func update_target_pos(target_pos: Vector3) -> void:
 	nav_agent.target_position = target_pos
 
+
 func sit() -> void:
 	if seat.pickup: eat()
 	else:
@@ -70,7 +78,16 @@ func eat() -> void:
 	timer.start()
 
 func _on_timer_timeout() -> void:
+	animation.play("getup")
 	seat.free_seat()
 	eaten = true
 	moving = true
 	update_target_pos(door.global_position)
+
+func splat() -> void:
+	flinching = true
+	animation.speed_scale = 1
+	animation.play("gethit_001")
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "gethit_001": flinching = false

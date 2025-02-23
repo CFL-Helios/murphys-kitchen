@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbqa0cjoaphvd"]
+[gd_scene load_steps=15 format=3 uid="uid://bbqa0cjoaphvd"]
 
 [ext_resource type="PackedScene" uid="uid://ca33na7xn7nu2" path="res://entities/player/player.tscn" id="1_0ccno"]
 [ext_resource type="PackedScene" uid="uid://c0py45xar41vs" path="res://entities/game_manager.tscn" id="1_65vfg"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://cuget5syu6iqu" path="res://scripts/tables.gd" id="4_xnitr"]
 [ext_resource type="PackedScene" uid="uid://bc160qkxdw1i2" path="res://entities/seat/seat.tscn" id="6_65vfg"]
 [ext_resource type="PackedScene" uid="uid://1bdb4jkek2fx" path="res://entities/ui/HUD.tscn" id="6_78qg3"]
+[ext_resource type="PackedScene" uid="uid://ckbg7b33b8b2" path="res://entities/customer/customer.tscn" id="8_3lms2"]
+[ext_resource type="PackedScene" uid="uid://ca3afvivsj2h0" path="res://entities/pickup/food.tscn" id="9_q5yfh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cqog6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -78,6 +80,12 @@ radius = 1.0
 height = 1.0
 
 [node name="Hud" parent="." instance=ExtResource("6_78qg3")]
+
+[node name="Customer" parent="." instance=ExtResource("8_3lms2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.00375, -0.290098, 2.20609)
+
+[node name="Food" parent="." instance=ExtResource("9_q5yfh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.03161, 2.52578, 2.00845)
 
 [editable path="NavigationRegion3D/Tables/Seat"]
 [editable path="NavigationRegion3D/Tables/Seat/Placement"]
