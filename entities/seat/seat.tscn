@@ -9,7 +9,7 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84593, 0)
 
 [node name="Placement" parent="." node_paths=PackedStringArray("chair") instance=ExtResource("1_3mmfg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875054, 1.39169, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.981154, 1.39169, 0)
 chair = NodePath("../Chair")
 
 [node name="InteractionMesh" parent="Placement" index="0"]

@@ -3480,6 +3480,7 @@ script = ExtResource("1_dhnu5")
 speed = 2.0
 
 [node name="NavAgent" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
 
 [node name="CustomerMesh" type="Node3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

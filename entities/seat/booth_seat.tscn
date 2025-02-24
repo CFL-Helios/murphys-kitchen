@@ -7,14 +7,14 @@
 [node name="booth_seat" type="Node3D"]
 
 [node name="Placement" parent="." node_paths=PackedStringArray("chair") instance=ExtResource("2_2hbsw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3831, 1.39169, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.820069, 1.39169, 0)
 chair = NodePath("../PlaceholderChair")
 
 [node name="InteractionMesh" parent="Placement" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.525724, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0234122, 0, 0)
 
 [node name="InteractionCollider" parent="Placement" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.875842, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.826163, 0, 0)
 
 [node name="PlaceholderChair" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.919216, 0)
