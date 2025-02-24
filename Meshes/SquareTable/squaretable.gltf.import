@@ -36,7 +36,7 @@ _subresources={
 "nodes": {
 "PATH:table_002": {
 "generate/physics": true,
-"physics/layer": 9,
+"physics/layer": 40,
 "physics/shape_type": 0,
 "primitive/size": Vector3(9.54, 2, 2)
 }
